@@ -3,7 +3,7 @@ Vue-CLI 3.x plugin for ym.
 
 Quickly build basic development templates.
 
-<p align="center>
+<p align="center">
   <a href="https://www.npmjs.com/package/vue-cli-plugin-basis">
     <img src="https://img.shields.io/npm/v/vue-cli-plugin-basis.svg" alt="NPM">
   </a>
