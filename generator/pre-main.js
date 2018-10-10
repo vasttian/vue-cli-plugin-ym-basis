@@ -7,7 +7,7 @@ module.exports = (api) => {
   api.onCreateComplete(() => {
     helpers.updateFile(api, api.entryFile, (lines) => {
       let lastImportIndex = lines.findIndex(line => line.match(/^import Vue/));
-      lines.splice(lastImportIndex += 1, 0, "import '@/styles/global.scss';");
+      lines.splice(lastImportIndex += 1, 0, "import '@/styles/index.scss';");
       return lines;
     });
   });

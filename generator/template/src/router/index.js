@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/views/auth/Login.vue';
-import Index from '@/views/Index.vue';
+import Layout from '@/views/layouts/Layout.vue';
+
 import Homepage from '@/views/admin/Homepage.vue';
 
 Vue.use(Router);
@@ -36,15 +37,15 @@ export default new Router({
       component: Login,
     },
     {
-      path: '/',
-      name: 'Index',
-      component: Index,
-      redirect: { name: 'Homepage' },
+      path: '',
+      name: 'Layout',
+      component: Layout,
+      redirect: { name: 'Index' },
       meta: {},
       children: [
         {
-          path: '/homepage',
-          name: 'Homepage',
+          path: '/index',
+          name: 'Index',
           component: Homepage,
           meta: {
             icon: 'home',
