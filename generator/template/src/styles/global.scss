@@ -1,4 +1,6 @@
+<%_ if (ui === 'element') { _%>
 @import "../../element-variables.scss";
+<%_ } _%>
 
 html, body{
   width: 100%;
@@ -36,6 +38,7 @@ ul, li {
   width: 100%;
 }
 
+<%_ if (ui === 'element') { _%>
 // HEADER
 .el-header {
   background-color: #065bc9;
@@ -64,13 +67,33 @@ ul, li {
       font-weight: 600;
 
       &:hover, &:active {
+        border-bottom: 0;
         color: #237ae0;
         background-color: transparent;
       }
 
       &.is-active {
+        border-bottom: 0;
         color: #fff;
         background-color: transparent;
+      }
+    }
+
+    .el-submenu {
+      border-bottom: 0;
+      background-color: transparent;
+      border-bottom-color: transparent;
+
+      &.is-active {
+        border-bottom: 0;
+        background-color: transparent;
+        border-bottom-color: transparent;
+
+        .el-submenu__title {
+          border-bottom: 0;
+          background-color: transparent;
+          border-bottom-color: transparent !important;
+        }
       }
     }
   }
@@ -96,22 +119,6 @@ ul, li {
 
     &:hover {
       color: #fff;
-    }
-  }
-}
-
-.change-lang {
-  display: block;
-  cursor: pointer;
-  margin-left: 20px;
-
-  span {
-    cursor: pointer;
-    padding: 0 2px;
-    color: #c0c4cc;
-
-    &.active-lang {
-      color: #0302f5;
     }
   }
 }
@@ -156,6 +163,23 @@ ul, li {
   text-align: center;
   color: gray;
   font-size: 12px;
+}
+<%_ } _%>
+
+.change-lang {
+  display: block;
+  cursor: pointer;
+  margin-left: 20px;
+
+  span {
+    cursor: pointer;
+    padding: 0 2px;
+    color: #c0c4cc;
+
+    &.active-lang {
+      color: #0302f5;
+    }
+  }
 }
 
 // COMMON
