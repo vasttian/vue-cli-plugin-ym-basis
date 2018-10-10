@@ -9,6 +9,14 @@
         <img src="@/assets/logo.png" alt="">
       </span>
     </router-link>
+    <span
+      style="
+        position: absolute;
+        left: 178px;
+        top: 20px;"
+        @click.stop="$emit('toggleSidebar')">
+      <img src="@/assets/baseline-menu-24px.svg" alt="">
+    </span>
 
     <!-- menu -->
     <el-menu

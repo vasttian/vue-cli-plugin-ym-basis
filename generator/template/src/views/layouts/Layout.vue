@@ -1,6 +1,8 @@
 <template>
   <%_ if (ui === 'element') { _%>
-  <el-container class="app-wrapper">
+  <el-container
+    class="app-wrapper"
+    direction="vertical">
   <%_ } else if (ui === 'vuetify') { _%>
   <v-app class="app-wrapper">
   <%_ } else { _%>

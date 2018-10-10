@@ -1,14 +1,10 @@
 <template>
   <%_ if (ui === 'element') { _%>
-  <el-aside>
-    <el-radio-group v-model="drawer" style="margin-bottom: 20px;">
-      <el-radio-button :label="false">展开</el-radio-button>
-      <el-radio-button :label="true">收起</el-radio-button>
-    </el-radio-group>
+  <el-aside width="">
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
-      :collapse="drawer">
+      :collapse="!drawer">
       <el-submenu
         index="1"
         :style="{ width: drawer ? '199px' : '60px' }">
@@ -145,3 +141,12 @@ export default {
   },
 };
 </script>
+
+<%_ if (ui === 'element') { _%>
+<style>
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+</style>
+<%_ } _%>

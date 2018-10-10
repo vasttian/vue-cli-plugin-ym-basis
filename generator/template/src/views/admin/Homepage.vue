@@ -2,12 +2,12 @@
   <div>
     <div style="text-align:center; margin-bottom:70px;">
       <h2>Hello, Welcome to come here.</h2>
-      <h3>This is a beta version.</h3>
+      <h3>TIP: This is a beta version.</h3>
       <h3>Start your creation as much as you can.</h3>
     </div>
     <%_ if (ui === 'element') { _%>
     <%_ if (echarts) { _%>
-    <div style="margin-left:100px; float:left;">
+    <div style="display:flex; justify-content:center;">
       <v-chart :options="chartOption"></v-chart>
     </div>
     <%_ } _%>
@@ -314,11 +314,3 @@ export default {
 };
 </script>
 
-<style>
-  <%_ if (ui === 'element') { _%>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-  <%_ } _%>
-</style>
