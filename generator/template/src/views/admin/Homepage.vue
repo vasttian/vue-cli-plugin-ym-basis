@@ -5,13 +5,12 @@
       <h3>TIP: This is a beta version.</h3>
       <h3>Start your creation as much as you can.</h3>
     </div>
-    <%_ if (ui === 'element') { _%>
-    <%_ if (echarts) { _%>
+    <%_ if (ui === 'element' && echarts) { _%>
     <div style="display:flex; justify-content:center;">
       <v-chart :options="chartOption"></v-chart>
     </div>
     <%_ } _%>
-    <%_ } else { _%>
+    <%_ if (ui === 'vuetify') { _%>
     <v-layout justify-center align-center column>
       <v-flex>
         <v-tooltip right>
