@@ -1,7 +1,89 @@
 <template>
+  <%_ if (ui === 'element') { _%>
+  <el-header
+    class="flex-box space-btw">
+    <!-- logo -->
+    <router-link
+      :to="{ path: '/' }">
+      <span class="logo">
+        <img src="@/assets/logo.png" alt="">
+      </span>
+    </router-link>
+
+    <!-- menu -->
+    <el-menu
+      :default-active="activeMenu"
+      mode="horizontal"
+      background-color="#065bc9"
+      text-color="#fff"
+      active-text-color="#21d5cb"
+      router>
+      <template v-for="(route, index) in $router.options.routes[1].children">
+        <template
+          v-if="route.meta && route.meta.hasSub">
+          <el-submenu
+            v-if="roleShow(route)"
+            :index="route.name"
+            :key="index">
+            <template slot="title">{{ route.name }}</template>
+            <el-menu-item
+              v-for="(cRoute, idx) in route.children"
+              :key="idx"
+              :index="cRoute.name"
+              :route="cRoute">
+              <span slot="title">{{ cRoute.name }}</span>
+            </el-menu-item>
+          </el-submenu>
+        </template>
+        <template v-else>
+          <el-menu-item
+            v-if="roleShow(route)"
+            :key="index"
+            :index="route.name"
+            :route="route">
+            <span slot="title">{{ route.name }}</span>
+          </el-menu-item>
+        </template>
+      </template>
+    </el-menu>
+
+    <!-- avatar -->
+    <div class="flex-box">
+      <el-dropdown>
+        <span class="el-dropdown-link userinfo flex-box">
+          <span class="avatar flex-box">
+            <img
+              src="http://67.218.155.2:8082/1.png"
+              alt="Demo">
+          </span>
+          <span>{{ user && user.username }}</span>
+          <i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>
+            {{ $t('common.account') }}
+          </el-dropdown-item>
+          <el-dropdown-item @click.native="logout">
+            {{ $t('common.logout') }}
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <div class="change-lang">
+        <span
+          @click="switchLang('zh-CN')"
+          :class="{ 'active-lang': currentLang === 'zh-CN' }">
+          中文
+        </span> /
+        <span
+          @click="switchLang('en')"
+          :class="{ 'active-lang': currentLang === 'en' }">
+          En
+        </span>
+      </div>
+    </div>
+  </el-header>
+  <%_ } else if (ui === 'vuetify') { _%>
   <header>
-    <%_ if (ui === 'element') { _%>
-    <%_ } else { _%>
     <v-toolbar
       class="primary"
       dark
@@ -108,8 +190,10 @@
       </div>
       <%_ } _%>
     </v-toolbar>
-    <%_ } _%>
   </header>
+  <%_ } else { _%>
+  <header></header>
+  <%_ } _%>
 </template>
 
 <script>
@@ -117,7 +201,6 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      currentYear: (new Date()).getFullYear(),
       <%_ if (i18n !== 'none') { _%>
       currentLang: this.$i18n.locale,
       <%_ } _%>
@@ -130,9 +213,9 @@ export default {
     user() {
       <%_ if (hamlet) { _%>
       return this.$auth.token() && this.$store.state.auth ? this.$store.state.auth.user || {} : {};
-      <%_ } else {_%>
+      <%_ } else { _%>
       return { username: 'Demo' };
-      <%_ }_%>
+      <%_ } _%>
     },
   },
   methods: {

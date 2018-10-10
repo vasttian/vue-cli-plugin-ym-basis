@@ -1,6 +1,11 @@
 <template>
   <section>
     <%_ if (ui === 'element') { _%>
+    <el-main>
+      <transition name="move" mode="out-in">
+        <router-view />
+      </transition>
+    </el-main>
     <%_ } else { _%>
     <v-content>
       <v-container fluid>
