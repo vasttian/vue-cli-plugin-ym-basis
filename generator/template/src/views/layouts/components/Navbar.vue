@@ -60,16 +60,24 @@
             <img
               src="http://67.218.155.2:8082/1.png"
               alt="Demo">
-          </span>
+          </span
           <span>{{ user && user.username }}</span>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>
+          <el-dropdown-item @click.native="changePassword">
+            <%_ if (i18n === 'none') { _%>
+            修改密码
+            <%_ } else { _%>
             {{ $t('common.account') }}
+            <%_ } _%>
           </el-dropdown-item>
           <el-dropdown-item @click.native="logout">
+            <%_ if (i18n === 'none') { _%>
+            退出登录
+            <%_ } else { _%>
             {{ $t('common.logout') }}
+            <%_ } _%>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -162,7 +170,7 @@
           <v-icon>arrow_drop_down</v-icon>
         </v-toolbar-title>
         <v-list>
-          <v-list-tile>
+          <v-list-tile @click.native="changePassword">
             <v-list-tile-title>
               <%_ if (i18n === 'none') { _%>
               修改密码
@@ -266,6 +274,12 @@ export default {
       });
       <%_ } _%>
       <%_ } _%>
+    },
+    changePassword() {
+      this.$message({
+        type: 'info',
+        text: 'Ahem: Please add a function to change your password',
+      });
     },
   },
   created() {
