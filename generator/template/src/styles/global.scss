@@ -53,6 +53,12 @@ ul, li {
     }
   }
 
+  .toggle-btn {
+    position: absolute;
+    left: 178px;
+    top: 20px;
+  }
+
   .el-menu {
     &--horizontal {
       border-bottom: 0;
@@ -81,17 +87,12 @@ ul, li {
 
     .el-submenu {
       border-bottom: 0;
-      background-color: transparent;
-      border-bottom-color: transparent;
 
       &.is-active {
         border-bottom: 0;
-        background-color: transparent;
-        border-bottom-color: transparent;
 
         .el-submenu__title {
           border-bottom: 0;
-          background-color: transparent;
           border-bottom-color: transparent !important;
         }
       }

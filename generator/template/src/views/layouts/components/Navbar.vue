@@ -10,11 +10,8 @@
       </span>
     </router-link>
     <span
-      style="
-        position: absolute;
-        left: 178px;
-        top: 20px;"
-        @click.stop="$emit('toggleSidebar')">
+      class="toggle-btn"
+      @click.stop="$emit('toggleSidebar')">
       <img src="@/assets/baseline-menu-24px.svg" alt="">
     </span>
 
@@ -22,6 +19,9 @@
     <el-menu
       :default-active="activeMenu"
       mode="horizontal"
+      background-color="#065bc9"
+      text-color="#fff"
+      active-text-color="#21d5cb"
       router>
       <template v-for="(route, index) in $router.options.routes[1].children">
         <template
