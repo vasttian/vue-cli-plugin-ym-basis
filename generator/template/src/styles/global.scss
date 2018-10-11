@@ -137,6 +137,12 @@ ul, li {
   transition: 80ms;
 }
 
+.el-aside {
+  .el-menu {
+    height: 100%;
+  }
+}
+
 .sub-header {
   position: absolute;
   top: 0;

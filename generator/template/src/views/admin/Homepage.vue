@@ -7,11 +7,16 @@
     </div>
     <%_ if (ui === 'element' && echarts) { _%>
     <div style="display:flex; justify-content:center;">
-      <v-chart :options="chartOption"></v-chart>
+      <v-chart
+        :options="chartOption"
+        style="width:100%;"></v-chart>
     </div>
     <%_ } _%>
     <%_ if (ui === 'vuetify') { _%>
-    <v-layout justify-center align-center column>
+    <v-layout
+      justify-center
+      align-center
+      column>
       <v-flex>
         <v-tooltip right>
           <v-btn
@@ -27,7 +32,9 @@
       </v-flex>
       <%_ if (echarts) { _%>
       <v-flex>
-        <v-chart :options="chartOption"></v-chart>
+        <v-chart
+          :options="chartOption"
+          style="width:100%;"></v-chart>
       </v-flex>
       <%_ } _%>
     </v-layout>
