@@ -6,7 +6,7 @@
 
     <div class="slogan-wrapper">
       <div class="slogan">
-        <img src="../../assets/login-bg2.svg" alt="">
+        <img src="../../assets/login-bg.svg" alt="">
       </div>
     </div>
 

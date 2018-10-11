@@ -22,9 +22,6 @@
     <el-menu
       :default-active="activeMenu"
       mode="horizontal"
-      background-color="#065bc9"
-      text-color="#fff"
-      active-text-color="#21d5cb"
       router>
       <template v-for="(route, index) in $router.options.routes[1].children">
         <template
