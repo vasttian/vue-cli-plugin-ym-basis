@@ -73,6 +73,7 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+      <%_ if (i18n !== 'none') { _%>
       <div class="change-lang">
         <span
           @click="switchLang('zh-CN')"
@@ -85,6 +86,7 @@
           En
         </span>
       </div>
+      <%_ } _%>
     </div>
   </el-header>
   <%_ } else if (ui === 'vuetify') { _%>
