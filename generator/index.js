@@ -24,7 +24,7 @@ module.exports = (api, opts, rootOptions) => {
 
   console.log('options:', opts);
   updatePremain(api, opts);
-  if (opts.i18 !== 'none') {
+  if (opts.i18n !== 'none') {
     i18n(api, opts, rootOptions);
   }
 
