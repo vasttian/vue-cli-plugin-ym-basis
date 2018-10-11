@@ -58,9 +58,9 @@
         <span class="el-dropdown-link userinfo flex-box">
           <span class="avatar flex-box">
             <img
-              src="http://67.218.155.2:8082/1.png"
+              src="http://67.218.155.2:8082/cloud.jpg"
               alt="Demo">
-          </span
+          </span>
           <span>{{ user && user.username }}</span>
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
@@ -163,7 +163,7 @@
         <v-toolbar-title slot="activator">
           <v-avatar size="40">
             <img
-              src="http://67.218.155.2:8082/1.png"
+              src="http://67.218.155.2:8082/cloud.jpg"
               alt="Demo">
           </v-avatar>
           <span style="margin-left: 10px;">vasttian</span>
@@ -276,10 +276,17 @@ export default {
       <%_ } _%>
     },
     changePassword() {
+      <%_ if (ui === 'element') { _%>
+      this.$message({
+        showClose: true,
+        message: 'Please add a function to change your password',
+      });
+      <%_ } else if (ui === 'vuetify') { _%>
       this.$message({
         type: 'info',
-        text: 'Ahem: Please add a function to change your password',
+        text: 'Please add a function to change your password',
       });
+      <%_ } _%>
     },
   },
   created() {
