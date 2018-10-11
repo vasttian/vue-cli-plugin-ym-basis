@@ -1,5 +1,6 @@
 ## vue-cli-plugin-basis
-Vue-CLI 3.x plugin for ym.
+
+Vue-CLI 3.x plugin for YM.
 
 Quickly build basic development templates.
 
