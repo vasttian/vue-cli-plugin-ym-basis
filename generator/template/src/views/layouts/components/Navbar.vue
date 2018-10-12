@@ -23,12 +23,12 @@
       text-color="#fff"
       active-text-color="#21d5cb"
       router>
-      <template v-for="(route, index) in $router.options.routes[1].children">
+      <template v-for="(route, index) in $router.options.routes">
         <template
-          v-if="route.meta && route.meta.hasSub">
+          v-if="route.children && route.children.length > 1 && route.meta && route.meta.hasSub">
           <el-submenu
             v-if="roleShow(route)"
-            :index="route.name"
+            :index="route.path"
             :key="index">
             <template slot="title">{{ route.name }}</template>
             <el-menu-item
@@ -44,9 +44,9 @@
           <el-menu-item
             v-if="roleShow(route)"
             :key="index"
-            :index="route.name"
+            :index="route.path"
             :route="route">
-            <span slot="title">{{ route.name }}</span>
+            <span slot="title">{{ route.children[0].name }}</span>
           </el-menu-item>
         </template>
       </template>
