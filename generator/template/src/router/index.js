@@ -54,9 +54,7 @@ export default new Router({
         {
           path: '/users',
           name: 'Users',
-          component: {
-            template: '<div class="title">Users</div>',
-          },
+          component: () => import('@/views/admin/TheUsers.vue'),
           meta: {
             icon: 'people_outline',
             auth: [],
