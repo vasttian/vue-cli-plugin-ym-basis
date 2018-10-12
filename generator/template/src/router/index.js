@@ -3,8 +3,6 @@ import Router from 'vue-router';
 import Login from '@/views/auth/Login.vue';
 import Layout from '@/views/layouts/Layout.vue';
 
-import Homepage from '@/views/admin/Homepage.vue';
-
 Vue.use(Router);
 
 const Root = Vue.component('temp', {
@@ -46,7 +44,7 @@ export default new Router({
         {
           path: '/index',
           name: 'Index',
-          component: Homepage,
+          component: () => import('@/views/common/Homepage.vue'),
           meta: {
             icon: 'home',
             hidden: false,
