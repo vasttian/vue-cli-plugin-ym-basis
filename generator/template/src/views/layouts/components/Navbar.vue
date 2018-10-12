@@ -16,41 +16,7 @@
     </span>
 
     <!-- menu -->
-    <el-menu
-      :default-active="activeMenu"
-      mode="horizontal"
-      background-color="#065bc9"
-      text-color="#fff"
-      active-text-color="#21d5cb"
-      router>
-      <template v-for="(route, index) in $router.options.routes">
-        <template
-          v-if="route.children && route.children.length > 1 && route.meta && route.meta.hasSub">
-          <el-submenu
-            v-if="roleShow(route)"
-            :index="route.path"
-            :key="index">
-            <template slot="title">{{ route.name }}</template>
-            <el-menu-item
-              v-for="(cRoute, idx) in route.children"
-              :key="idx"
-              :index="cRoute.name"
-              :route="cRoute">
-              <span slot="title">{{ cRoute.name }}</span>
-            </el-menu-item>
-          </el-submenu>
-        </template>
-        <template v-else>
-          <el-menu-item
-            v-if="roleShow(route)"
-            :key="index"
-            :index="route.path"
-            :route="route">
-            <span slot="title">{{ route.children[0].name }}</span>
-          </el-menu-item>
-        </template>
-      </template>
-    </el-menu>
+    <navbar-menus></navbar-menus>
 
     <!-- avatar -->
     <div class="flex-box">
@@ -212,8 +178,13 @@
 </template>
 
 <script>
+import navbarMenus from './menus/TheIndex.vue';
+
 export default {
   name: 'NavBar',
+  components: {
+    navbarMenus,
+  },
   data() {
     return {
       <%_ if (i18n !== 'none') { _%>
