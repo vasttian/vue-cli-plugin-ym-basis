@@ -108,7 +108,7 @@ npm run serve
 - [x] add: Query locale.
 - [x] add: Remote Presets.
 - [x] mod: API process.
-- [ ] refactor: project structure.
+- [x] refactor: project structure.
 - [ ] mod: Styles folder.
 - [ ] ......
 - [ ] ......

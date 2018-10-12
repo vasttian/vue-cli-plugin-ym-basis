@@ -46,6 +46,7 @@ ul, li {
 
   .logo {
     margin-right: 60px;
+
     img {
       display: inline-block;
       height: 32px;
@@ -62,25 +63,20 @@ ul, li {
   .el-menu {
     &--horizontal {
       border-bottom: 0;
-      background-color: transparent;
     }
 
     .el-menu-item {
       border-bottom: 0;
-      color: #91bdf0;
       margin: 0px 20px;
       font-size: 16px;
       font-weight: 600;
 
       &:hover, &:active {
         border-bottom: 0;
-        color: #237ae0;
-        background-color: transparent;
       }
 
       &.is-active {
         border-bottom: 0;
-        color: #fff;
         background-color: transparent;
       }
     }
@@ -88,8 +84,16 @@ ul, li {
     .el-submenu {
       border-bottom: 0;
 
+      .el-submenu__title {
+        margin: 0px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        border-bottom: 0;
+      }
+
       &.is-active {
         border-bottom: 0;
+        background-color: transparent;
 
         .el-submenu__title {
           border-bottom: 0;
