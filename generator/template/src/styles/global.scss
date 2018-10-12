@@ -45,7 +45,7 @@ ul, li {
   font-weight: 500;
 
   .logo {
-    margin-right: 60px;
+    margin-left: 20px;
 
     img {
       display: inline-block;
@@ -56,8 +56,9 @@ ul, li {
 
   .toggle-btn {
     position: absolute;
-    left: 178px;
-    top: 20px;
+    left: 10px;
+    top: 19px;
+    z-index: 1;
   }
 
   .el-menu {
