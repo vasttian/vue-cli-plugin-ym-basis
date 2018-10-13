@@ -24,9 +24,10 @@ const Delete = {
 /**
 * TIPS:
 * meta: {
-*   hidden: false,   // If `hidden:true` will not appear in the navigation bar or sidebar(default is false)
-*   auth: [],        // It will control the page roles (you can set multiple roles)
-*   icon: 'home',    // Icon will appear in the navigation bar or sidebar
+*   hidden: false,    // If `hidden:true` will not appear in the navigation bar or sidebar(default is false)
+*   auth: [],         // It will control the page roles (you can set multiple roles)
+*   icon: 'home',     // Icon will appear in the navigation bar or sidebar
+*   hasMulSub: false, // It has multiple children
 * }
 */
 export default new Router({
@@ -52,7 +53,6 @@ export default new Router({
           component: () => import('@/views/common/Homepage.vue'),
           meta: {
             icon: 'home',
-            hidden: false,
             auth: [],
           },
         },
@@ -64,7 +64,7 @@ export default new Router({
       redirect: { name: 'Users' },
       children: [
         {
-          path: '',
+          path: 'index',
           name: 'Users',
           component: () => import('@/views/admin/TheUsers.vue'),
           meta: {
@@ -80,7 +80,7 @@ export default new Router({
       component: Layout,
       redirect: { name: 'Create' },
       meta: {
-        hasSub: true,
+        hasMulSub: true,
       },
       children: [
         {

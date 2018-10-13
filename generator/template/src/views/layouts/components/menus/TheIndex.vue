@@ -16,7 +16,7 @@
           <span slot="title">{{ route.name }}</span>
         </el-menu-item>
       </template>
-      <template v-else-if="(route.meta && route.meta.hasMulSub) || route.children.length > 1">
+      <template v-else-if="route.meta && route.meta.hasMulSub">
         <el-submenu
           v-if="roleShow(route)"
           :index="route.name"
@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     roleShow(route) {
-      console.log('route', route);
+      // console.log('route', route);
       if (!route.meta) {
         return true;
       }
