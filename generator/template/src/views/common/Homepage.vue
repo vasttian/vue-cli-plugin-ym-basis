@@ -60,7 +60,7 @@ export default {
       chartOption: {
         backgroundColor: '#394056',
         title: {
-          text: '请求数',
+          text: 'DEMO',
           textStyle: {
             fontWeight: 'normal',
             fontSize: 16,
@@ -81,8 +81,8 @@ export default {
           itemWidth: 14,
           itemHeight: 5,
           itemGap: 13,
-          data: ['移动', '电信', '联通'],
-          right: '4%',
+          data: ['A', 'B', 'C'],
+          right: 20,
           textStyle: {
             fontSize: 12,
             color: '#F1F1F3',
@@ -90,7 +90,7 @@ export default {
         },
         grid: {
           left: '3%',
-          right: '4%',
+          right: 20,
           bottom: '3%',
           containLabel: true,
         },
@@ -104,59 +104,26 @@ export default {
               },
             },
             data: [
-              '13:00',
-              '13:05',
-              '13:10',
-              '13:15',
-              '13:20',
-              '13:25',
-              '13:30',
-              '13:35',
-              '13:40',
-              '13:45',
-              '13:50',
-              '13:55',
-            ],
-          },
-          {
-            axisPointer: {
-              show: false,
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#57617B',
-              },
-            },
-            axisTick: {
-              show: false,
-            },
-            position: 'bottom',
-            offset: 20,
-            data: [
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              {
-                value: '周六',
-                textStyle: {
-                  align: 'left',
-                },
-              },
-              '周日',
+              '14:00',
+              '14:10',
+              '14:20',
+              '14:30',
+              '14:40',
+              '14:50',
+              '15:00',
+              '15:10',
+              '15:20',
+              '15:30',
+              '15:40',
+              '15:50',
+              '16:00',
             ],
           },
         ],
         yAxis: [
           {
             type: 'value',
-            name: '单位（%）',
+            name: '（%）',
             axisTick: {
               show: false,
             },
@@ -180,7 +147,7 @@ export default {
         ],
         series: [
           {
-            name: '移动',
+            name: 'A',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -216,15 +183,15 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'rgb(137,189,27)',
-                borderColor: 'rgba(137,189,2,0.27)',
+                color: 'rgb(137, 189, 27)',
+                borderColor: 'rgba(137, 189, 2, 0.27)',
                 borderWidth: 12,
               },
             },
-            data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122],
+            data: [200, 182, 180, 194, 140, 150, 110, 125, 165, 130, 160, 120, 156],
           },
           {
-            name: '电信',
+            name: 'B',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -260,15 +227,15 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'rgb(0,136,212)',
-                borderColor: 'rgba(0,136,212,0.2)',
+                color: 'rgb(0, 136, 212)',
+                borderColor: 'rgba(0, 136, 212, 0.2)',
                 borderWidth: 12,
               },
             },
-            data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150],
+            data: [120, 100, 125, 125, 152, 165, 132, 213, 182, 191, 134, 150, 146],
           },
           {
-            name: '联通',
+            name: 'C',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -304,12 +271,12 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'rgb(219,50,51)',
-                borderColor: 'rgba(219,50,51,0.2)',
+                color: 'rgb(219, 50, 51)',
+                borderColor: 'rgba(219, 50, 51, 0.2)',
                 borderWidth: 12,
               },
             },
-            data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122],
+            data: [200, 182, 135, 145, 132, 200, 154, 150, 120, 130, 180, 132, 140],
           },
         ],
       },
