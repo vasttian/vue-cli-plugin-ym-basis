@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       <%_ if (ui === 'vuetify') { _%>
-      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/admin/Homepage.vue',
+      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/common/Homepage.vue',
       <%_ } _%>
       <%_ if (echarts) { _%>
       chartOption: {
