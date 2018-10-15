@@ -13,18 +13,7 @@
     <div class="panel-content">
       <%_ if (ui === 'element') { _%>
       <%_ if (i18n !== 'none') { _%>
-      <div class="change-lang">
-        <span
-          @click="switchLang('zh-CN')"
-          :class="{ 'active-lang': currentLang === 'zh-CN' }">
-          中文
-        </span> /
-        <span
-          @click="switchLang('en')"
-          :class="{ 'active-lang': currentLang === 'en' }">
-          En
-        </span>
-      </div>
+      <lang-bar></lang-bar>
       <%_ } _%>
       <div class="login-con">
         <el-form class="frame">
@@ -107,18 +96,7 @@
         <!-- <v-spacer></v-spacer> -->
         <v-content>
           <%_ if (i18n !== 'none') { _%>
-          <div class="change-lang">
-            <span
-              @click="switchLang('zh-CN')"
-              :class="{ 'active-lang': currentLang === 'zh-CN' }">
-              中文
-            </span> /
-            <span
-              @click="switchLang('en')"
-              :class="{ 'active-lang': currentLang === 'en' }">
-              En
-            </span>
-          </div>
+          <lang-bar></lang-bar>
           <%_ } _%>
           <v-container fluid fill-height>
             <v-layout align-center justify-center>
@@ -210,8 +188,15 @@
 
 <script>
 import { isMobile<% if (hamlet) { %>, isEmptyObject<% } %> } from '@/utils/util';
+<%_ if (i18n !== 'none') { _%>
+import langBar from '@/components/widgets/LangBar.vue';
+<%_ } _%>
 
 export default {
+  name: 'Login',
+  components: {
+    langBar,
+  },
   data() {
     return {
       currentYear: (new Date()).getFullYear(),
