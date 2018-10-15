@@ -68,7 +68,6 @@ ul, li {
 
     .el-menu-item {
       border-bottom: 0;
-      margin: 0px 20px;
       font-size: 16px;
       font-weight: 600;
 
@@ -86,11 +85,10 @@ ul, li {
       border-bottom: 0;
 
       .el-submenu__title {
-        margin: 0px 20px;
         font-size: 16px;
         font-weight: 600;
-        border-bottom: 0;
         line-height: 65px;
+        border-bottom: 0;
       }
 
       &.is-active {
