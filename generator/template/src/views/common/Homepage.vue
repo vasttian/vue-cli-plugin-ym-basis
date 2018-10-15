@@ -66,7 +66,7 @@ export default {
             fontSize: 16,
             color: '#F1F1F3',
           },
-          left: '6%',
+          left: 10,
         },
         tooltip: {
           trigger: 'axis',

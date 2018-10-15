@@ -81,7 +81,9 @@
               src="http://67.218.155.2:8082/cloud.jpg"
               alt="Demo">
           </v-avatar>
-          <span>{{ user && user.username }}</span>
+          <span style="margin-left:5px;font-weight: 500;font-size: 16px;">
+            {{ user && user.username }}
+          </span>
           <v-icon>arrow_drop_down</v-icon>
         </v-toolbar-title>
         <v-list>
