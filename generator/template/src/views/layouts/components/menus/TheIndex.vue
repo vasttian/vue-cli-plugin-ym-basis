@@ -1,4 +1,5 @@
 <template>
+  <%_ if (ui === 'element') { _%>
   <el-menu
     :default-active="activeMenu"
     mode="horizontal"
@@ -42,6 +43,65 @@
       </template>
     </template>
   </el-menu>
+  <%_ } else if (ui === 'vuetify') { _%>
+  <v-toolbar-items>
+    <template v-for="(route, index) in $router.options.routes">
+      <template v-if="!route.children">
+        <v-btn
+          v-if="roleShow(route)"
+          :key="index"
+          :input-value="activeMenu === route.name"
+          flat
+          :to="{ name: route.name }">
+          {{ route.name }}
+        </v-btn>
+      </template>
+      <template v-else-if="route.meta && route.meta.hasMulSub">
+        <v-menu
+          v-if="roleShow(route)"
+          :key="index"
+          bottom
+          origin="bottom center"
+          offset-y
+          transition="scale-transition">
+          <v-btn
+            slot="activator"
+            flat>
+            {{ route.name }}
+            <v-icon dark>arrow_drop_down</v-icon>
+          </v-btn>
+          <v-list :key="index">
+            <v-list-tile
+              v-for="(cRoute, idx) in route.children"
+              :to="{ name: cRoute.name }"
+              :key="idx">
+              <v-list-tile-action v-if="cRoute.meta && cRoute.meta.icon">
+                <v-icon>{{ cRoute.meta.icon }}</v-icon>
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>
+                  {{ cRoute.name }}
+                </v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
+      </template>
+      <template v-else>
+        <v-btn
+          v-if="roleShow(route.children[0])"
+          :key="index"
+          :input-value="activeMenu === route.children[0].name"
+          flat
+          :to="{ name: route.children[0].name }">
+          {{ route.children[0].name }}
+        </v-btn>
+      </template>
+    </template>
+  </v-toolbar-items>
+  <%_ } else { _%>
+  <div></div>
+  <%_ } _%>
 </template>
 
 <script>
@@ -54,7 +114,11 @@ export default {
   },
   computed: {
     user() {
+      <%_ if (hamlet) { _%>
       return this.$auth.token() && this.$store.state.auth ? this.$store.state.auth.user || {} : {};
+      <%_ } else {_%>
+      return { username: 'Demo' };
+      <%_ }_%>
     },
     activeMenu() {
       return this.$route.name;

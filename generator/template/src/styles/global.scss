@@ -45,7 +45,7 @@ ul, li {
   font-weight: 500;
 
   .logo {
-    margin-right: 60px;
+    margin-left: 20px;
 
     img {
       display: inline-block;
@@ -56,8 +56,9 @@ ul, li {
 
   .toggle-btn {
     position: absolute;
-    left: 178px;
-    top: 20px;
+    left: 10px;
+    top: 19px;
+    z-index: 1;
   }
 
   .el-menu {
@@ -67,7 +68,6 @@ ul, li {
 
     .el-menu-item {
       border-bottom: 0;
-      margin: 0px 20px;
       font-size: 16px;
       font-weight: 600;
 
@@ -85,11 +85,10 @@ ul, li {
       border-bottom: 0;
 
       .el-submenu__title {
-        margin: 0px 20px;
         font-size: 16px;
         font-weight: 600;
-        border-bottom: 0;
         line-height: 65px;
+        border-bottom: 0;
       }
 
       &.is-active {

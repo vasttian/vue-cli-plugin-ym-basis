@@ -10,15 +10,13 @@
       <v-chart
         :options="chartOption"
         style="width:100%;"
-        auto-resize></v-chart>
+        auto-resize
+      ></v-chart>
     </div>
     <%_ } _%>
     <%_ if (ui === 'vuetify') { _%>
-    <v-layout
-      justify-center
-      align-center
-      column>
-      <v-flex>
+    <v-layout column>
+      <v-flex justify-center>
         <v-tooltip right>
           <v-btn
             icon
@@ -36,7 +34,8 @@
         <v-chart
           :options="chartOption"
           style="width:100%;"
-          auto-resize></v-chart>
+          auto-resize
+        ></v-chart>
       </v-flex>
       <%_ } _%>
     </v-layout>
@@ -55,7 +54,7 @@ export default {
   data() {
     return {
       <%_ if (ui === 'vuetify') { _%>
-      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/admin/Homepage.vue',
+      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/common/Homepage.vue',
       <%_ } _%>
       <%_ if (echarts) { _%>
       chartOption: {
@@ -67,7 +66,7 @@ export default {
             fontSize: 16,
             color: '#F1F1F3',
           },
-          left: '6%',
+          left: 10,
         },
         tooltip: {
           trigger: 'axis',
