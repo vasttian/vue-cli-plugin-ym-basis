@@ -45,7 +45,8 @@
               :placeholder="$t('common.username')"
               <%_ } _%>
               v-model="form.username"
-              @keyup.enter.native="login"></el-input>
+              @keyup.enter.native="login"
+            ></el-input>
           </el-form-item>
           <el-form-item>
             <el-input
@@ -57,7 +58,8 @@
               <%_ } _%>
               v-model="form.password"
               type="password"
-              @keyup.enter.native="login"></el-input>
+              @keyup.enter.native="login"
+            ></el-input>
           </el-form-item>
           <el-form-item>
             <el-col :span="12">
@@ -83,8 +85,10 @@
                 <%_ } else { _%>
                 {{ $t('common.login') }}
                 <%_ } _%>
-                <i v-if="loginLoading"
-                  class="el-icon-loading"></i>
+                <i
+                  v-if="loginLoading"
+                  class="el-icon-loading"
+                ></i>
               </el-button>
             </el-col>
           </el-form-item>
@@ -168,8 +172,9 @@
                     </v-flex>
                     <v-flex>
                       <v-btn
-                        :disabled="loginLoading"
+                        :loading="loginLoading"
                         @click="login">
+                        <span slot="loader">Loading...</span>
                         <%_ if (i18n === 'none') { _%>
                         登录
                         <%_ } else { _%>

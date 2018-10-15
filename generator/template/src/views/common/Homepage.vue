@@ -10,7 +10,8 @@
       <v-chart
         :options="chartOption"
         style="width:100%;"
-        auto-resize></v-chart>
+        auto-resize
+      ></v-chart>
     </div>
     <%_ } _%>
     <%_ if (ui === 'vuetify') { _%>
@@ -33,7 +34,8 @@
         <v-chart
           :options="chartOption"
           style="width:100%;"
-          auto-resize></v-chart>
+          auto-resize
+        ></v-chart>
       </v-flex>
       <%_ } _%>
     </v-layout>
