@@ -194,9 +194,11 @@ import langBar from '@/components/widgets/LangBar.vue';
 
 export default {
   name: 'Login',
+  <%_ if (i18n !== 'none') { _%>
   components: {
     langBar,
   },
+  <%_ } _%>
   data() {
     return {
       currentYear: (new Date()).getFullYear(),
