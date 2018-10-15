@@ -108,9 +108,6 @@
 <script>
 export default {
   name: 'Sidebar',
-  // props: [
-  //   'drawer',
-  // ],
   data() {
     return {
       <%_ if (ui === 'element') { _%>

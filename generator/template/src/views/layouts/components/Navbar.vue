@@ -168,7 +168,6 @@ export default {
         this.$router.push({ name: 'Login' });
       });
       <%_ } else {_%>
-      console.log('logout');
       this.$router.push({ name: 'Login' });
       <%_ if (ui === 'element') { _%>
       this.$message({
