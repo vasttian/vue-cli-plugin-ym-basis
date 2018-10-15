@@ -14,11 +14,8 @@
     </div>
     <%_ } _%>
     <%_ if (ui === 'vuetify') { _%>
-    <v-layout
-      justify-center
-      align-center
-      column>
-      <v-flex>
+    <v-layout column>
+      <v-flex justify-center>
         <v-tooltip right>
           <v-btn
             icon
