@@ -49,18 +49,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <%_ if (i18n !== 'none') { _%>
-      <div class="change-lang">
-        <span
-          @click="switchLang('zh-CN')"
-          :class="{ 'active-lang': currentLang === 'zh-CN' }">
-          中文
-        </span> /
-        <span
-          @click="switchLang('en')"
-          :class="{ 'active-lang': currentLang === 'en' }">
-          En
-        </span>
-      </div>
+      <lang-bar></lang-bar>
       <%_ } _%>
     </div>
   </el-header>
@@ -92,11 +81,11 @@
               src="http://67.218.155.2:8082/cloud.jpg"
               alt="Demo">
           </v-avatar>
-          <span style="margin-left: 10px;">vasttian</span>
+          <span>{{ user && user.username }}</span>
           <v-icon>arrow_drop_down</v-icon>
         </v-toolbar-title>
         <v-list>
-          <v-list-tile @click.native="changePassword">
+          <v-list-tile @click="changePassword">
             <v-list-tile-title>
               <%_ if (i18n === 'none') { _%>
               修改密码
@@ -117,18 +106,7 @@
         </v-list>
       </v-menu>
       <%_ if (i18n !== 'none') { _%>
-      <div class="change-lang">
-        <span
-          @click="switchLang('zh-CN')"
-          :class="{ 'active-lang': currentLang === 'zh-CN' }">
-          中文
-        </span> /
-        <span
-          @click="switchLang('en')"
-          :class="{ 'active-lang': currentLang === 'en' }">
-          En
-        </span>
-      </div>
+      <lang-bar></lang-bar>
       <%_ } _%>
     </v-toolbar>
   </header>
@@ -138,18 +116,22 @@
 </template>
 
 <script>
+<%_ if (i18n !== 'none') { _%>
+import langBar from '@/components/widgets/LangBar.vue';
+<%_ } _%>
 import navbarMenu from './menus/TheIndex.vue';
 
 export default {
   name: 'NavBar',
   components: {
+    <%_ if (i18n !== 'none') { _%>
+    langBar,
+    <%_ } _%>
     navbarMenu,
   },
   data() {
     return {
-      <%_ if (i18n !== 'none') { _%>
-      currentLang: this.$i18n.locale,
-      <%_ } _%>
+
     };
   },
   computed: {
@@ -178,13 +160,6 @@ export default {
       const { auth } = route.meta;
       return auth ? (!auth.length && !this.user.role) || auth.includes(this.user.role) : !auth;
     },
-    <%_ if (i18n !== 'none') { _%>
-    switchLang(lang = 'zh-CN') {
-      this.currentLang = lang;
-      this.$locale.use(lang);
-      localStorage.setItem('<%= rootOptions.projectName.toUpperCase() %>_LANGUAGE', lang);
-    },
-    <%_ } _%>
     logout() {
       <%_ if (hamlet) { _%>
       this.$auth.logout().then(() => {
