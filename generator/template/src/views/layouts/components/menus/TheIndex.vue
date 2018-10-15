@@ -54,7 +54,11 @@ export default {
   },
   computed: {
     user() {
+      <%_ if (hamlet) { _%>
       return this.$auth.token() && this.$store.state.auth ? this.$store.state.auth.user || {} : {};
+      <%_ } else {_%>
+      return { username: 'Demo' };
+      <%_ }_%>
     },
     activeMenu() {
       return this.$route.name;
