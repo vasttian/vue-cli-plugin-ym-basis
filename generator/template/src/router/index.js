@@ -44,6 +44,13 @@ export default new Router({
     },
     {
       path: '/',
+      redirect: { name: 'Index' },
+      meta: {
+        hidden: true,
+      },
+    },
+    {
+      path: '/index',
       component: Layout,
       redirect: { name: 'Index' },
       children: [
