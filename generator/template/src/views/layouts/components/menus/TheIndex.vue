@@ -36,9 +36,9 @@
         <el-menu-item
           v-if="roleShow(route.children[0])"
           :key="index"
-          :index="route.children[0].name"
+          :index="getRouteName(route)"
           :route="route.children[0]">
-          <span slot="title">{{ route.children[0].name }}</span>
+          <span slot="title">{{ getRouteName(route) }}</span>
         </el-menu-item>
       </template>
     </template>
@@ -91,10 +91,10 @@
         <v-btn
           v-if="roleShow(route.children[0])"
           :key="index"
-          :input-value="activeMenu === route.children[0].name"
+          :input-value="activeMenu === getRouteName(route)"
           flat
-          :to="{ name: route.children[0].name }">
-          {{ route.children[0].name }}
+          :to="{ name: getRouteName(route) }">
+          {{ getRouteName(route) }}
         </v-btn>
       </template>
     </template>
@@ -138,6 +138,9 @@ export default {
 
       const { auth } = route.meta;
       return auth ? (!auth.length && !this.user.role) || auth.includes(this.user.role) : !auth;
+    },
+    getRouteName(route = {}) {
+      return route.name || (route.children && route.children[0].name) || '';
     },
   },
 };
