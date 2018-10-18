@@ -102,7 +102,11 @@
             <v-layout align-center justify-center>
               <v-flex class="frame">
                 <h1 v-if="!isMobile">
+                  <%_ if (i18n === 'none') { _%>
                   Login
+                  <%_ } else { _%>
+                  {{ $t('common.loginN') }}
+                  <%_ } _%>
                 </h1>
                 <v-form>
                   <v-text-field
