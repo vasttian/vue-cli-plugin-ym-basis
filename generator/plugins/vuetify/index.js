@@ -117,7 +117,10 @@ Vue.use(Vuetify, {
   <%_ } _%>
   <%_ if (opts.i18n !== 'none') { _%>
   lang: {
-    locales: { enLang, zhLang },
+    locales: {
+      enLang,
+      zhLang,
+    },
     current: 'enLang',
   },
   <%_ } _%>
@@ -130,6 +133,7 @@ that.$locale = {
   use(lang) {
     i18n.locale = lang;
     that.$vuetify.lang.current = lang === 'zh-CN' ? 'zhLang' : 'enLang';
+    localStorage.setItem('<%= rootOptions.projectName.toUpperCase() %>_LANGUAGE', lang);
   },
   current() {
     return i18n.locale;
