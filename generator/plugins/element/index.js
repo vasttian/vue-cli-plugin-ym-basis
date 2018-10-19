@@ -96,11 +96,10 @@ Vue.prototype.$locale = {
   use(lang) {
     i18n.locale = lang;
     locale.use(lang === 'zh-CN' ? zhLang : enLang);
+    localStorage.setItem('<%= rootOptions.projectName.toUpperCase() %>_LANGUAGE', lang);
   },
   current() {
     return i18n.locale;
   },
 };
-
-locale.use(i18n.locale === 'zh-CN' ? zhLang : enLang);
 <%_ } _%>

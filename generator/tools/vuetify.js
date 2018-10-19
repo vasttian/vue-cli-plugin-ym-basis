@@ -29,7 +29,7 @@ function removeTransformImports(api) {
   });
 }
 
-module.exports = (api, opts) => {
+module.exports = (api, opts, rootOptions) => {
   api.extendPackage({
     dependencies: {
       vuetify: '^1.2.3',
@@ -52,7 +52,7 @@ module.exports = (api, opts) => {
     './src/components/snackbar/src/Main.vue': '../plugins/vuetify/components/snackbar/src/Main.vue',
   };
 
-  api.render(files, { opts });
+  api.render(files, { opts }, { rootOptions });
   if (opts.customTheme) {
     const files = {
       './src/stylus/main.styl': '../plugins/vuetify/template/stylus/main.styl',

@@ -14,14 +14,15 @@ Vue.router.beforeEach((to, from, next) => {
     delete to.query.locale;
     if (supportedLangs.includes(locale)) {
       i18n.locale = locale;
-      localStorage.setItem('${rootOptions.projectName.toUpperCase()}', locale);
+      localStorage.setItem('${rootOptions.projectName.toUpperCase()}_LANGUAGE', locale);
     }
   }
 
   next();
 });
-i18n.locale = localStorage.getItem('${rootOptions.projectName.toUpperCase()}') ||
-  supportedLangs.includes(userLocale) ? userLocale : 'zh-CN';`;
+i18n.locale = localStorage.getItem('${rootOptions.projectName.toUpperCase()}_LANGUAGE') ||
+  (supportedLangs.includes(userLocale) ? userLocale : 'zh-CN');
+Vue.prototype.$locale.use(i18n.locale);`;
 
   return lines;
 }

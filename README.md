@@ -1,10 +1,11 @@
 ## vue-cli-plugin-basis
-Vue-CLI 3.x plugin for ym.
+
+Vue-CLI 3.x plugin for YM.
 
 Quickly build basic development templates.
 
-<p align="center>
-  <a href="https://github.com/vasttian/vue-cli-plugin-basis/blob/master/LICENSE">
+<p align="center">
+  <a href="https://www.npmjs.com/package/vue-cli-plugin-basis">
     <img src="https://img.shields.io/npm/v/vue-cli-plugin-basis.svg" alt="NPM">
   </a>
   <a href="https://github.com/vasttian/vue-cli-plugin-basis/releases">
@@ -107,7 +108,7 @@ npm run serve
 - [x] add: Query locale.
 - [x] add: Remote Presets.
 - [x] mod: API process.
-- [ ] refactor: project structure.
+- [x] refactor: project structure.
 - [ ] mod: Styles folder.
 - [ ] ......
 - [ ] ......
@@ -118,4 +119,4 @@ If you run into any issues, you can contact me at [issues](https://github.com/va
 
 ### :copyright: License
 
-[MIT](http://opensource.org/licenses/MIT)
+Under the MIT license. See [LICENSE](http://opensource.org/licenses/MIT) file for more details.

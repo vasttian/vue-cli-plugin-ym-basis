@@ -6,25 +6,14 @@
 
     <div class="slogan-wrapper">
       <div class="slogan">
-        <img src="../../assets/login-bg2.svg" alt="">
+        <img src="../../assets/login-bg.svg" alt="">
       </div>
     </div>
 
     <div class="panel-content">
       <%_ if (ui === 'element') { _%>
       <%_ if (i18n !== 'none') { _%>
-      <div class="change-lang">
-        <span
-          @click="switchLang('zh-CN')"
-          :class="{ 'active-lang': currentLang === 'zh-CN' }">
-          中文
-        </span> /
-        <span
-          @click="switchLang('en')"
-          :class="{ 'active-lang': currentLang === 'en' }">
-          En
-        </span>
-      </div>
+      <lang-bar></lang-bar>
       <%_ } _%>
       <div class="login-con">
         <el-form class="frame">
@@ -45,7 +34,8 @@
               :placeholder="$t('common.username')"
               <%_ } _%>
               v-model="form.username"
-              @keyup.enter.native="login"></el-input>
+              @keyup.enter.native="login"
+            ></el-input>
           </el-form-item>
           <el-form-item>
             <el-input
@@ -57,7 +47,8 @@
               <%_ } _%>
               v-model="form.password"
               type="password"
-              @keyup.enter.native="login"></el-input>
+              @keyup.enter.native="login"
+            ></el-input>
           </el-form-item>
           <el-form-item>
             <el-col :span="12">
@@ -83,8 +74,10 @@
                 <%_ } else { _%>
                 {{ $t('common.login') }}
                 <%_ } _%>
-                <i v-if="loginLoading"
-                  class="el-icon-loading"></i>
+                <i
+                  v-if="loginLoading"
+                  class="el-icon-loading"
+                ></i>
               </el-button>
             </el-col>
           </el-form-item>
@@ -103,24 +96,17 @@
         <!-- <v-spacer></v-spacer> -->
         <v-content>
           <%_ if (i18n !== 'none') { _%>
-          <div class="change-lang">
-            <span
-              @click="switchLang('zh-CN')"
-              :class="{ 'active-lang': currentLang === 'zh-CN' }">
-              中文
-            </span> /
-            <span
-              @click="switchLang('en')"
-              :class="{ 'active-lang': currentLang === 'en' }">
-              En
-            </span>
-          </div>
+          <lang-bar></lang-bar>
           <%_ } _%>
           <v-container fluid fill-height>
             <v-layout align-center justify-center>
               <v-flex class="frame">
                 <h1 v-if="!isMobile">
+                  <%_ if (i18n === 'none') { _%>
                   Login
+                  <%_ } else { _%>
+                  {{ $t('common.loginN') }}
+                  <%_ } _%>
                 </h1>
                 <v-form>
                   <v-text-field
@@ -168,8 +154,9 @@
                     </v-flex>
                     <v-flex>
                       <v-btn
-                        :disabled="loginLoading"
+                        :loading="loginLoading"
                         @click="login">
+                        <span slot="loader">Loading...</span>
                         <%_ if (i18n === 'none') { _%>
                         登录
                         <%_ } else { _%>
@@ -205,8 +192,17 @@
 
 <script>
 import { isMobile<% if (hamlet) { %>, isEmptyObject<% } %> } from '@/utils/util';
+<%_ if (i18n !== 'none') { _%>
+import langBar from '@/components/widgets/LangBar.vue';
+<%_ } _%>
 
 export default {
+  name: 'Login',
+  <%_ if (i18n !== 'none') { _%>
+  components: {
+    langBar,
+  },
+  <%_ } _%>
   data() {
     return {
       currentYear: (new Date()).getFullYear(),
@@ -246,8 +242,8 @@ export default {
 
         if (!data || isEmptyObject(data)) {
           <%_ if (i18n === 'none') { _%>
-          this.$message.error(this.$t(reason === 'not bind to current app' ?
-          '对不起，您还没有获得权限，请联系管理员' : '用户名或密码错误！'));
+          this.$message.error(reason === 'not bind to current app' ?
+            '对不起，您还没有获得权限，请联系管理员' : '用户名或密码错误！');
           <%_ } else { _%>
           this.$message.error(this.$t(reason === 'not bind to current app' ?
             'common.notBindApp' : 'common.invalid_password_username'));
@@ -313,7 +309,6 @@ export default {
     <%_ } _%>
     redirectForgotPassword() {
       <%_ if (hamlet) { _%>
-      /* eslint-disable max-len */
       window.open(`${process.env.VUE_APP_HAMLET_URL}/forgot_password?app_key=${process.env.VUE_APP_APP_KEY}&callback_url=${document.location.href}`);
       <%_ } else {_%>
       console.log('redirectForgotPassword');

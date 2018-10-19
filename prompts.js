@@ -14,7 +14,7 @@ module.exports = [
     name: 'hamlet',
     type: 'confirm',
     message: 'Use vue-hamlet ? vue-hamlet is used as authentication for frontend.',
-    default: true,
+    default: false,
   },
   {
     name: 'ui',

@@ -2,63 +2,21 @@
   <div>
     <div style="text-align:center; margin-bottom:70px;">
       <h2>Hello, Welcome to come here.</h2>
-      <h3>This is a beta version.</h3>
+      <h3>TIP: This is a beta version.</h3>
       <h3>Start your creation as much as you can.</h3>
     </div>
-    <%_ if (ui === 'element') { _%>
-    <div style="float:left;">
-      <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-        <el-radio-button :label="false">展开</el-radio-button>
-        <el-radio-button :label="true">收起</el-radio-button>
-      </el-radio-group>
-      <el-menu
-        default-active="1-4-1"
-        class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
-        :collapse="isCollapse">
-        <el-submenu
-          index="1"
-          :style="{width: isCollapse ? '60px' : '199px'}">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
-          </template>
-          <el-menu-item-group>
-            <span slot="title">分组一</span>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">选项4</span>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-      </el-menu>
-    </div>
-    <%_ if (echarts) { _%>
-    <div style="margin-left:100px; float:left;">
-      <v-chart :options="chartOption"></v-chart>
+    <%_ if (ui === 'element' && echarts) { _%>
+    <div style="display:flex; justify-content:center;">
+      <v-chart
+        :options="chartOption"
+        style="width:100%;"
+        auto-resize
+      ></v-chart>
     </div>
     <%_ } _%>
-    <%_ } else { _%>
-    <v-layout justify-center align-center column>
-      <v-flex>
+    <%_ if (ui === 'vuetify') { _%>
+    <v-layout column>
+      <v-flex justify-center>
         <v-tooltip right>
           <v-btn
             icon
@@ -73,7 +31,11 @@
       </v-flex>
       <%_ if (echarts) { _%>
       <v-flex>
-        <v-chart :options="chartOption"></v-chart>
+        <v-chart
+          :options="chartOption"
+          style="width:100%;"
+          auto-resize
+        ></v-chart>
       </v-flex>
       <%_ } _%>
     </v-layout>
@@ -91,21 +53,20 @@ export default {
   name: 'Homepage',
   data() {
     return {
-      isCollapse: true,
       <%_ if (ui === 'vuetify') { _%>
-      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/admin/Homepage.vue',
+      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/common/Homepage.vue',
       <%_ } _%>
       <%_ if (echarts) { _%>
       chartOption: {
         backgroundColor: '#394056',
         title: {
-          text: '请求数',
+          text: 'DEMO',
           textStyle: {
             fontWeight: 'normal',
             fontSize: 16,
             color: '#F1F1F3',
           },
-          left: '6%',
+          left: 10,
         },
         tooltip: {
           trigger: 'axis',
@@ -120,8 +81,8 @@ export default {
           itemWidth: 14,
           itemHeight: 5,
           itemGap: 13,
-          data: ['移动', '电信', '联通'],
-          right: '4%',
+          data: ['A', 'B', 'C'],
+          right: 20,
           textStyle: {
             fontSize: 12,
             color: '#F1F1F3',
@@ -129,7 +90,7 @@ export default {
         },
         grid: {
           left: '3%',
-          right: '4%',
+          right: 20,
           bottom: '3%',
           containLabel: true,
         },
@@ -143,59 +104,26 @@ export default {
               },
             },
             data: [
-              '13:00',
-              '13:05',
-              '13:10',
-              '13:15',
-              '13:20',
-              '13:25',
-              '13:30',
-              '13:35',
-              '13:40',
-              '13:45',
-              '13:50',
-              '13:55',
-            ],
-          },
-          {
-            axisPointer: {
-              show: false,
-            },
-            axisLine: {
-              lineStyle: {
-                color: '#57617B',
-              },
-            },
-            axisTick: {
-              show: false,
-            },
-            position: 'bottom',
-            offset: 20,
-            data: [
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              '',
-              {
-                value: '周六',
-                textStyle: {
-                  align: 'left',
-                },
-              },
-              '周日',
+              '14:00',
+              '14:10',
+              '14:20',
+              '14:30',
+              '14:40',
+              '14:50',
+              '15:00',
+              '15:10',
+              '15:20',
+              '15:30',
+              '15:40',
+              '15:50',
+              '16:00',
             ],
           },
         ],
         yAxis: [
           {
             type: 'value',
-            name: '单位（%）',
+            name: '（%）',
             axisTick: {
               show: false,
             },
@@ -219,7 +147,7 @@ export default {
         ],
         series: [
           {
-            name: '移动',
+            name: 'A',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -255,15 +183,15 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'rgb(137,189,27)',
-                borderColor: 'rgba(137,189,2,0.27)',
+                color: 'rgb(137, 189, 27)',
+                borderColor: 'rgba(137, 189, 2, 0.27)',
                 borderWidth: 12,
               },
             },
-            data: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122],
+            data: [200, 182, 180, 194, 140, 150, 110, 125, 165, 130, 160, 120, 156],
           },
           {
-            name: '电信',
+            name: 'B',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -299,15 +227,15 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'rgb(0,136,212)',
-                borderColor: 'rgba(0,136,212,0.2)',
+                color: 'rgb(0, 136, 212)',
+                borderColor: 'rgba(0, 136, 212, 0.2)',
                 borderWidth: 12,
               },
             },
-            data: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150],
+            data: [120, 100, 125, 125, 152, 165, 132, 213, 182, 191, 134, 150, 146],
           },
           {
-            name: '联通',
+            name: 'C',
             type: 'line',
             smooth: true,
             symbol: 'circle',
@@ -343,12 +271,12 @@ export default {
             },
             itemStyle: {
               normal: {
-                color: 'rgb(219,50,51)',
-                borderColor: 'rgba(219,50,51,0.2)',
+                color: 'rgb(219, 50, 51)',
+                borderColor: 'rgba(219, 50, 51, 0.2)',
                 borderWidth: 12,
               },
             },
-            data: [220, 182, 125, 145, 122, 191, 134, 150, 120, 110, 165, 122],
+            data: [200, 182, 135, 145, 132, 200, 154, 150, 120, 130, 180, 132, 140],
           },
         ],
       },
@@ -356,23 +284,7 @@ export default {
     };
   },
   methods: {
-    <%_ if (ui === 'element') { _%>
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    <%_ } _%>
   },
 };
 </script>
 
-<style>
-  <%_ if (ui === 'element') { _%>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-  <%_ } _%>
-</style>

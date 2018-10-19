@@ -66,6 +66,7 @@
     top: 0;
   }
 }
+
 @media (max-width: 768px) {
   .slogan-wrapper {
     display: none;
@@ -102,12 +103,14 @@
     }
   }
 
+  <%_ if (ui === 'element') { _%>
   .el-footer {
     display: block;
     position: absolute;
     bottom: 0;
     width: 100%;
   }
+  <%_ } _%>
 
   .change-lang {
     display: block;
@@ -124,30 +127,5 @@
         color: #237ae0;
       }
     }
-  }
-}
-
-.resetpsw-result {
-  display: block;
-  width: 300px;
-  margin: 80px auto;
-  position: relative;
-
-  h3 {
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-
-  .el-icon-success {
-    font-size: 24px;
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-
-  .el-button {
-    margin-left: 36px;
   }
 }

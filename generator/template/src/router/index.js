@@ -1,14 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/views/auth/Login.vue';
-import Index from '@/views/Index.vue';
-import Homepage from '@/views/admin/Homepage.vue';
+import Layout from '@/views/layouts/Layout.vue';
 
 Vue.use(Router);
-
-const Root = Vue.component('temp', {
-  template: '<router-view></router-view>',
-});
 
 const Create = {
   template: '<div class="title">Create</div>',
@@ -26,6 +21,15 @@ const Delete = {
   template: '<div class="title">Delete</div>',
 };
 
+/**
+* TIPS:
+* meta: {
+*   hidden: false,    // If `hidden:true` will not appear in the navigation bar or sidebar(default is false)
+*   auth: [],         // It will control the page roles (you can set multiple roles)
+*   icon: 'home',     // Icon will appear in the navigation bar or sidebar
+*   hasMulSub: false, // It has multiple children
+* }
+*/
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -34,80 +38,93 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+      meta: {
+        hidden: true,
+      },
     },
     {
       path: '/',
-      name: 'Index',
-      component: Index,
-      redirect: { name: 'Homepage' },
-      meta: {},
+      redirect: { name: 'Index' },
+      meta: {
+        hidden: true,
+      },
+    },
+    {
+      path: '/index',
+      component: Layout,
+      redirect: { name: 'Index' },
       children: [
         {
-          path: '/homepage',
-          name: 'Homepage',
-          component: Homepage,
+          path: '/index',
+          name: 'Index',
+          component: () => import('@/views/common/Homepage.vue'),
           meta: {
             icon: 'home',
-            hidden: false,
             auth: [],
           },
         },
+      ],
+    },
+    {
+      path: '/users',
+      component: Layout,
+      redirect: { name: 'Users' },
+      children: [
         {
-          path: '/users',
+          path: 'index',
           name: 'Users',
-          component: {
-            template: '<div class="title">Users</div>',
-          },
+          component: () => import('@/views/admin/TheUsers.vue'),
           meta: {
             icon: 'people_outline',
             auth: [],
           },
         },
+      ],
+    },
+    {
+      path: '/actions',
+      name: 'Actions',
+      component: Layout,
+      redirect: { name: 'Create' },
+      meta: {
+        hasMulSub: true,
+      },
+      children: [
         {
-          path: '/actions',
-          name: 'Actions',
-          component: Root,
+          path: '/create',
+          name: 'Create',
+          component: Create,
           meta: {
-            hasSub: true,
+            icon: 'add',
+            auth: [],
           },
-          children: [
-            {
-              path: '/create',
-              name: 'Create',
-              component: Create,
-              meta: {
-                icon: 'add',
-                auth: [],
-              },
-            },
-            {
-              path: '/read',
-              name: 'Read',
-              component: Read,
-              meta: {
-                icon: 'insert_drive_file',
-                auth: [],
-              },
-            },
-            {
-              path: '/update',
-              name: 'Update',
-              component: Update,
-              meta: {
-                icon: 'update',
-                auth: [],
-              },
-            },
-            {
-              path: '/delete',
-              name: 'Delete',
-              component: Delete,
-              meta: {
-                icon: 'delete',
-                auth: [],
-              },
-            },
-          ],
+        },
+        {
+          path: '/read',
+          name: 'Read',
+          component: Read,
+          meta: {
+            icon: 'insert_drive_file',
+            auth: [],
+          },
+        },
+        {
+          path: '/update',
+          name: 'Update',
+          component: Update,
+          meta: {
+            icon: 'update',
+            auth: [],
+          },
+        },
+        {
+          path: '/delete',
+          name: 'Delete',
+          component: Delete,
+          meta: {
+            icon: 'delete',
+            auth: [],
+          },
         },
       ],
     },
@@ -121,6 +138,9 @@ export default new Router({
     },
     {
       path: '*',
+      meta: {
+        hidden: true,
+      },
       redirect: { name: 'Index' },
     },
   ],

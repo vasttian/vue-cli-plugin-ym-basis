@@ -24,12 +24,12 @@ module.exports = (api, opts, rootOptions) => {
 
   console.log('options:', opts);
   updatePremain(api, opts);
-  if (opts.i18 !== 'none') {
+  if (opts.i18n !== 'none') {
     i18n(api, opts, rootOptions);
   }
 
-  opts.ui === 'element' && element(api, opts);
-  opts.ui === 'vuetify' && vuetify(api, opts);
+  opts.ui === 'element' && element(api, opts, rootOptions);
+  opts.ui === 'vuetify' && vuetify(api, opts, rootOptions);
 
   opts.hamlet && vueHamlet(api, opts);
   opts.moment && moment(api);
