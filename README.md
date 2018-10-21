@@ -1,8 +1,9 @@
-## vue-cli-plugin-basis
-
-Vue-CLI 3.x plugin for YM.
-
-Quickly build basic development templates.
+<!-- ## vue-cli-plugin-basis -->
+<h2 align="center">vue-cli-plugin-basis</h2>
+<p align="center">
+  <h4 align="center">Vue-CLI 3.x plugin for YM.</h4>
+  <h4 align="center">Quickly build basic development templates.</h4>
+</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/vue-cli-plugin-basis">
@@ -17,6 +18,8 @@ Quickly build basic development templates.
 </p>
 
 <!-- [![npm](https://img.shields.io/npm/v/vue-cli-plugin-basis.svg)](https://www.npmjs.com/package/vue-cli-plugin-basis) -->
+
+---
 
 ### :page_with_curl: Index
 * [:warning: Heads up](#warning-heads-up)
@@ -116,6 +119,9 @@ npm run serve
 ### :exclamation: Issues
 
 If you run into any issues, you can contact me at [issues](https://github.com/vasttian/vue-cli-plugin-basis/issues)
+
+### :memo: Changelog
+Detailed changes for each release are documented in the [release notes](https://github.com/vasttian/vue-admin-vuetify/releases).
 
 ### :copyright: License
 
