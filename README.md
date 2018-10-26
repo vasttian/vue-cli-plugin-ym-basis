@@ -99,6 +99,20 @@ npm run serve
 
 :tada: Open http://localhost:8090 to see the demo.
 
+If [hot reload](https://vue-loader.vuejs.org/guide/hot-reload.html#state-preservation-rules) fails,
+modify your `vue.config.js`
+```
+module.exports = {
+  chainWebpack: config => {
+    config.resolve
+      .symlinks(true)
+  }
+}
+```
+or replace `cnpm` with `npm`
+
+`npm config set registry https://registry.npm.taobao.org`
+
 ### :white_check_mark: TODO
 - [x] add: `Element`.
 - [x] add: `Vuetify`.
@@ -121,6 +135,7 @@ npm run serve
 If you run into any issues, you can contact me at [issues](https://github.com/vasttian/vue-cli-plugin-basis/issues)
 
 ### :memo: Changelog
+
 Detailed changes for each release are documented in the [release notes](https://github.com/vasttian/vue-admin-vuetify/releases).
 
 ### :copyright: License
