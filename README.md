@@ -6,11 +6,14 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/vue-cli-plugin-basis">
-    <img src="https://img.shields.io/npm/v/vue-cli-plugin-basis.svg" alt="NPM">
+  <a href="https://github.com/vasttian/vue-cli-plugin-basis/tags">
+    <img src="https://img.shields.io/github/tag-date/vasttian/vue-cli-plugin-basis.svg" alt="TAGS">
   </a>
   <a href="https://github.com/vasttian/vue-cli-plugin-basis/releases">
     <img src="https://img.shields.io/github/release/vasttian/vue-cli-plugin-basis.svg" alt="RELEASE">
+  </a>
+  <a href="https://www.npmjs.com/package/vue-cli-plugin-basis">
+    <img src="https://img.shields.io/npm/v/vue-cli-plugin-basis.svg" alt="NPM">
   </a>
   <a href="https://github.com/vasttian/vue-cli-plugin-basis/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="LICENSE">
