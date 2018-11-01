@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from '@/views/auth/Login.vue';
-import Layout from '@/views/layouts/Layout.vue';
+import Login from '@/views/auth/TheLogin.vue';
+import Layout from '@/views/layouts/AppLayout.vue';
 
 Vue.use(Router);
 
@@ -57,7 +57,7 @@ export default new Router({
         {
           path: '/index',
           name: 'Index',
-          component: () => import('@/views/common/Homepage.vue'),
+          component: () => import('@/views/common/VHomepage.vue'),
           meta: {
             icon: 'home',
             auth: [],

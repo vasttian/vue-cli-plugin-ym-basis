@@ -10,8 +10,7 @@
       <v-chart
         :options="chartOption"
         style="width:100%;"
-        auto-resize
-      ></v-chart>
+        auto-resize/>
     </div>
     <%_ } _%>
     <%_ if (ui === 'vuetify') { _%>
@@ -32,10 +31,9 @@
       <%_ if (echarts) { _%>
       <v-flex>
         <v-chart
-          :options="chartOption"
           style="width:100%;"
-          auto-resize
-        ></v-chart>
+          :options="chartOption"
+          auto-resize/>
       </v-flex>
       <%_ } _%>
     </v-layout>
@@ -54,7 +52,7 @@ export default {
   data() {
     return {
       <%_ if (ui === 'vuetify') { _%>
-      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/common/Homepage.vue',
+      source: 'https://github.com/vasttian/vue-cli-plugin-basis/blob/master/generator/template/src/views/common/VHomepage.vue',
       <%_ } _%>
       <%_ if (echarts) { _%>
       chartOption: {

@@ -3,8 +3,8 @@
   <el-menu
     :default-active="activeMenu"
     mode="horizontal"
-    background-color="#065bc9"
     text-color="#fff"
+    background-color="#065bc9"
     active-text-color="#21d5cb"
     router>
     <template v-for="(route, index) in $router.options.routes">
@@ -49,9 +49,9 @@
       <template v-if="!route.children">
         <v-btn
           v-if="roleShow(route)"
+          flat
           :key="index"
           :input-value="activeMenu === route.name"
-          flat
           :to="{ name: route.name }">
           {{ route.name }}
         </v-btn>
@@ -59,10 +59,10 @@
       <template v-else-if="route.meta && route.meta.hasMulSub">
         <v-menu
           v-if="roleShow(route)"
-          :key="index"
           bottom
-          origin="bottom center"
           offset-y
+          :key="index"
+          origin="bottom center"
           transition="scale-transition">
           <v-btn
             slot="activator"
@@ -90,9 +90,9 @@
       <template v-else>
         <v-btn
           v-if="roleShow(route.children[0])"
+          flat
           :key="index"
           :input-value="activeMenu === getRouteName(route)"
-          flat
           :to="{ name: getRouteName(route) }">
           {{ getRouteName(route) }}
         </v-btn>

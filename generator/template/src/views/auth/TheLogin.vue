@@ -13,7 +13,7 @@
     <div class="panel-content">
       <%_ if (ui === 'element') { _%>
       <%_ if (i18n !== 'none') { _%>
-      <lang-bar></lang-bar>
+      <base-langbar/>
       <%_ } _%>
       <div class="login-con">
         <el-form class="frame">
@@ -96,7 +96,7 @@
         <!-- <v-spacer></v-spacer> -->
         <v-content>
           <%_ if (i18n !== 'none') { _%>
-          <lang-bar></lang-bar>
+          <base-langbar/>
           <%_ } _%>
           <v-container fluid fill-height>
             <v-layout align-center justify-center>
@@ -193,14 +193,14 @@
 <script>
 import { isMobile<% if (hamlet) { %>, isEmptyObject<% } %> } from '@/utils/util';
 <%_ if (i18n !== 'none') { _%>
-import langBar from '@/components/widgets/LangBar.vue';
+import BaseLangbar from '@/components/widgets/BaseLangbar.vue';
 <%_ } _%>
 
 export default {
   name: 'Login',
   <%_ if (i18n !== 'none') { _%>
   components: {
-    langBar,
+    BaseLangbar,
   },
   <%_ } _%>
   data() {
