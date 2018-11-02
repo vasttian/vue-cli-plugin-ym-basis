@@ -7,7 +7,7 @@
     background-color="#065bc9"
     active-text-color="#21d5cb"
     router>
-    <template v-for="(route, index) in $router.options.routes">
+    <template v-for="(route, index) in routes">
       <template v-if="!route.children">
         <el-menu-item
           v-if="roleShow(route)"
@@ -119,6 +119,10 @@ export default {
       <%_ } else {_%>
       return { username: 'Demo' };
       <%_ }_%>
+    },
+    routes() {
+      const { routes } = this.$router.options;
+      return routes.filter(route => (!route.meta || !route.meta.hidden));
     },
     activeMenu() {
       return this.$route.name;
