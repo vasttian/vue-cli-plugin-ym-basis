@@ -59,6 +59,7 @@ module.exports = (api, opts, rootOptions) => {
       const needDeleteFiles = [
         'router.js',
         'store.js',
+        'components/HelloWorld.vue',
         'views/About.vue',
         'views/Home.vue',
       ];
