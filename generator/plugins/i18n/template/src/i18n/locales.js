@@ -159,4 +159,34 @@ export default {
       'zh-CN': '请输入用户名',
     },
   },
+  route: {
+    index: {
+      en: 'Index',
+      'zh-CN': '首页',
+    },
+    users: {
+      en: 'Users',
+      'zh-CN': '用户',
+    },
+    actions: {
+      en: 'Actions',
+      'zh-CN': '操作',
+    },
+    create: {
+      en: 'Create',
+      'zh-CN': '新增',
+    },
+    delete: {
+      en: 'Delete',
+      'zh-CN': '删除',
+    },
+    update: {
+      en: 'Update',
+      'zh-CN': '修改',
+    },
+    read: {
+      en: 'Read',
+      'zh-CN': '查询',
+    },
+  },
 };
