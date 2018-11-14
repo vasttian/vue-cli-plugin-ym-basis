@@ -20,8 +20,8 @@ Vue.router.beforeEach((to, from, next) => {
 
   next();
 });
-i18n.locale = localStorage.getItem('${rootOptions.projectName.toUpperCase()}_LANGUAGE') ||
-  (supportedLangs.includes(userLocale) ? userLocale : 'zh-CN');
+i18n.locale = localStorage.getItem('${rootOptions.projectName.toUpperCase()}_LANGUAGE')
+  || (supportedLangs.includes(userLocale) ? userLocale : 'zh-CN');
 Vue.prototype.$locale.use(i18n.locale);`;
 
   return lines;
