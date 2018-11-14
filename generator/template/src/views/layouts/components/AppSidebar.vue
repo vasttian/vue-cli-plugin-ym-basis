@@ -107,7 +107,7 @@
 
 <script>
 export default {
-  name: 'Sidebar',
+  name: 'AppSidebar',
   data() {
     return {
       <%_ if (ui === 'element') { _%>
@@ -143,7 +143,6 @@ export default {
 <style>
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
-    min-height: 400px;
   }
 </style>
 <%_ } _%>

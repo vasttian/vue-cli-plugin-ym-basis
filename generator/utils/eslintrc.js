@@ -10,6 +10,7 @@ module.exports = (api) => {
 
     Object.assign(rules, { 'no-console': 0 });
     Object.assign(rules, { 'no-shadow': 0 });
+    Object.assign(rules, { 'operator-linebreak': [2, 'before'] });
     Object.assign(rules, {
       'max-len': ['error', {
         ignoreStrings: true,

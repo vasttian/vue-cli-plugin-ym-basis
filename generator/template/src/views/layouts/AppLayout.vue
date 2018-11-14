@@ -8,18 +8,18 @@
   <%_ } else { _%>
   <div class="app-wrapper">
   <%_ } _%>
-    <navbar
+    <app-navbar
       class="nav-container"
       @toggleSidebar="toggleSidebar"/>
     <%_ if (ui === 'element') { _%>
     <el-container>
-      <sidebar
+      <app-sidebar
         ref="sidebar"
         class="sidebar-container"/>
       <app-main class="main-container"/>
     </el-container>
     <%_ } else { _%>
-    <sidebar
+    <app-sidebar
       ref="sidebar"
       class="sidebar-container"/>
     <app-main class="main-container"/>
@@ -34,15 +34,15 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue';
-import Sidebar from './components/Sidebar.vue';
+import AppNavbar from './components/AppNavbar.vue';
+import AppSidebar from './components/AppSidebar.vue';
 import AppMain from './components/AppMain.vue';
 
 export default {
   name: 'Layout',
   components: {
-    Navbar,
-    Sidebar,
+    AppNavbar,
+    AppSidebar,
     AppMain,
   },
   data() {

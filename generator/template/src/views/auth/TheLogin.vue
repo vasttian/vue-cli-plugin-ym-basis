@@ -13,7 +13,7 @@
     <div class="panel-content">
       <%_ if (ui === 'element') { _%>
       <%_ if (i18n !== 'none') { _%>
-      <lang-bar></lang-bar>
+      <base-langbar/>
       <%_ } _%>
       <div class="login-con">
         <el-form class="frame">
@@ -96,7 +96,7 @@
         <!-- <v-spacer></v-spacer> -->
         <v-content>
           <%_ if (i18n !== 'none') { _%>
-          <lang-bar></lang-bar>
+          <base-langbar/>
           <%_ } _%>
           <v-container fluid fill-height>
             <v-layout align-center justify-center>
@@ -193,14 +193,14 @@
 <script>
 import { isMobile<% if (hamlet) { %>, isEmptyObject<% } %> } from '@/utils/util';
 <%_ if (i18n !== 'none') { _%>
-import langBar from '@/components/widgets/LangBar.vue';
+import BaseLangbar from '@/components/widgets/BaseLangbar.vue';
 <%_ } _%>
 
 export default {
   name: 'Login',
   <%_ if (i18n !== 'none') { _%>
   components: {
-    langBar,
+    BaseLangbar,
   },
   <%_ } _%>
   data() {
@@ -242,11 +242,11 @@ export default {
 
         if (!data || isEmptyObject(data)) {
           <%_ if (i18n === 'none') { _%>
-          this.$message.error(reason === 'not bind to current app' ?
-            '对不起，您还没有获得权限，请联系管理员' : '用户名或密码错误！');
+          this.$message.error(reason === 'not bind to current app'
+            ? '对不起，您还没有获得权限，请联系管理员' : '用户名或密码错误！');
           <%_ } else { _%>
-          this.$message.error(this.$t(reason === 'not bind to current app' ?
-            'common.notBindApp' : 'common.invalid_password_username'));
+          this.$message.error(this.$t(reason === 'not bind to current app'
+            ? 'common.notBindApp' : 'common.invalid_password_username'));
           <%_ } _%>
           return;
         }
@@ -256,8 +256,8 @@ export default {
         const enableLoginLock = data.enable_login_lock;
         const remainedCount = maxAttempts - failedCount;
 
-        if (enableLoginLock && (reason !== 'invalid login or password' ||
-          (maxAttempts && maxAttempts <= failedCount))) {
+        if (enableLoginLock && (reason !== 'invalid login or password'
+          || (maxAttempts && maxAttempts <= failedCount))) {
           <%_ if (i18n === 'none') { _%>
           this.$message.error('您的账号已被锁定，请联系管理员！');
           <%_ } else { _%>

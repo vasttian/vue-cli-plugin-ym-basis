@@ -49,7 +49,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <%_ if (i18n !== 'none') { _%>
-      <lang-bar></lang-bar>
+      <base-langbar/>
       <%_ } _%>
     </div>
   </el-header>
@@ -71,7 +71,7 @@
       <v-spacer></v-spacer>
 
       <!-- menu -->
-      <navbar-menu></navbar-menu>
+      <navbar-menu/>
 
       <v-spacer></v-spacer>
       <v-menu offset-y>
@@ -81,7 +81,7 @@
               src="http://67.218.155.2:8082/cloud.jpg"
               alt="Demo">
           </v-avatar>
-          <span style="margin-left:5px;font-weight: 500;font-size: 16px;">
+          <span style="margin-left: 5px;font-weight: 500;font-size: 16px;">
             {{ user && user.username }}
           </span>
           <v-icon>arrow_drop_down</v-icon>
@@ -108,7 +108,7 @@
         </v-list>
       </v-menu>
       <%_ if (i18n !== 'none') { _%>
-      <lang-bar></lang-bar>
+      <base-langbar/>
       <%_ } _%>
     </v-toolbar>
   </header>
@@ -119,17 +119,17 @@
 
 <script>
 <%_ if (i18n !== 'none') { _%>
-import langBar from '@/components/widgets/LangBar.vue';
+import BaseLangbar from '@/components/widgets/BaseLangbar.vue';
 <%_ } _%>
-import navbarMenu from './menus/TheIndex.vue';
+import NavbarMenu from './menus/TheIndex.vue';
 
 export default {
-  name: 'NavBar',
+  name: 'AppNavBar',
   components: {
     <%_ if (i18n !== 'none') { _%>
-    langBar,
+    BaseLangbar,
     <%_ } _%>
-    navbarMenu,
+    NavbarMenu,
   },
   data() {
     return {

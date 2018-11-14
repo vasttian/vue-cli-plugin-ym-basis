@@ -49,7 +49,7 @@ module.exports = (api, opts, rootOptions) => {
     './src/plugins/vuetify.js': '../plugins/vuetify/index.js',
     './src/components/snackbar/index.js': '../plugins/vuetify/components/snackbar/index.js',
     './src/components/snackbar/src/main.js': '../plugins/vuetify/components/snackbar/src/main.js',
-    './src/components/snackbar/src/Main.vue': '../plugins/vuetify/components/snackbar/src/Main.vue',
+    './src/components/snackbar/src/VMain.vue': '../plugins/vuetify/components/snackbar/src/VMain.vue',
   };
 
   api.render(files, { opts }, { rootOptions });
@@ -64,8 +64,8 @@ module.exports = (api, opts, rootOptions) => {
 
       },
       devDependencies: {
-        'css-loader': '^1.0.0',
         stylus: '^0.54.5',
+        'css-loader': '^1.0.0',
         'stylus-loader': '^3.0.2',
       },
     });
