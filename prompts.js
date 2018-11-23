@@ -17,6 +17,12 @@ module.exports = [
     default: false,
   },
   {
+    name: 'normalize',
+    type: 'confirm',
+    message: 'Use normalize.css ? Normalize.css is used to make browsers render all elements more consistently',
+    default: false,
+  },
+  {
     name: 'ui',
     type: 'list',
     message: 'Confirm your UI framework',
@@ -35,12 +41,6 @@ module.exports = [
       },
     ],
     default: 'element',
-  },
-  {
-    name: 'normalize',
-    type: 'confirm',
-    message: 'Use normalize.css ? Normalize.css is used to make browsers render all elements more consistently',
-    default: false,
   },
   {
     name: 'import',

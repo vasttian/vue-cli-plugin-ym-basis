@@ -17,8 +17,6 @@ module.exports = (api) => {
   api.onCreateComplete(() => {
     helpers.updateFile(api, api.entryFile, (lineups) => {
       const lines = addAbsoluteImports(lineups);
-
-      lines.reverse();
       return lines;
     });
   });

@@ -17,7 +17,6 @@ module.exports = (api, opts, rootOptions) => {
   api.extendPackage({
     dependencies: {
       axios: '^0.18.0',
-      'normalize.css': '^8.0.1',
     },
     devDependencies: {
 
@@ -33,8 +32,8 @@ module.exports = (api, opts, rootOptions) => {
   opts.ui === 'element' && element(api, opts, rootOptions);
   opts.ui === 'vuetify' && vuetify(api, opts, rootOptions);
 
-  opts.normalize && normalize(api);
   opts.hamlet && vueHamlet(api, opts);
+  opts.normalize && normalize(api);
   opts.moment && moment(api);
   opts.echarts && vueEcharts(api, opts);
 
