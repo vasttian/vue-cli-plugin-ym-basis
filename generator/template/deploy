@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-cd $HOME/projects/yisonar_fe
+cd $HOME/projects/<%= rootOptions.projectName %>
 git pull
 if [ -z "$1" ]
   then
@@ -13,8 +13,9 @@ elif [ "$1" = "production" ]
 else
   echo "Please deploy in specific mode like staging or production"
 fi
+
 sleep 2
-FE_PATH=/data/www/yisonar_fe
+FE_PATH=/data/www/<%= rootOptions.projectName %>
 FOLDER_DIST=${FE_PATH}/dist
 FOLDER_DIST_BAK=${FE_PATH}/dist_bak
 
