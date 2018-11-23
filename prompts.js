@@ -37,6 +37,12 @@ module.exports = [
     default: 'element',
   },
   {
+    name: 'normalize',
+    type: 'confirm',
+    message: 'Use normalize.css ? Normalize.css is used to make browsers render all elements more consistently',
+    default: false,
+  },
+  {
     name: 'import',
     type: 'list',
     message: answers => `How do you want to import ${answers.ui.charAt(0).toUpperCase() + answers.ui.slice(1)}?`,

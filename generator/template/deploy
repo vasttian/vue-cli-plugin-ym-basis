@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+cd $HOME/projects/yisonar_fe
+git pull
+if [ -z "$1" ]
+  then
+    echo "Please deploy in specific mode like staging or production"
+elif [ "$1" = "staging" ]
+  then
+    npm run build-staging
+elif [ "$1" = "production" ]
+  then
+    npm run build
+else
+  echo "Please deploy in specific mode like staging or production"
+fi
+sleep 2
+FE_PATH=/data/www/yisonar_fe
+FOLDER_DIST=${FE_PATH}/dist
+FOLDER_DIST_BAK=${FE_PATH}/dist_bak
+
+if [ ! -d ${FOLDER_DIST} ];
+then
+  mkdir ${FOLDER_DIST}
+fi
+
+if [ -d ${FOLDER_DIST_BAK} ];
+then
+  rm -rf ${FOLDER_DIST_BAK}
+fi
+
+if [ -e $FOLDER_DIST ]
+then
+  /bin/cp -r $FOLDER_DIST ${FOLDER_DIST_BAK}
+  /bin/cp -rf ./dist/. ${FOLDER_DIST}/
+else
+  /bin/cp -rf ./dist ${FOLDER_DIST}
+  /bin/cp -r $FOLDER_DIST ${FOLDER_DIST_BAK}
+fi

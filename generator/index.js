@@ -4,6 +4,7 @@ const updateMain = require('./main');
 const updateEslintrc = require('./utils/eslintrc');
 const prettier = require('prettier');
 const i18n = require('./plugins/i18n');
+const normalize = require('./tools/normalize');
 const element = require('./tools/element');
 const vuetify = require('./tools/vuetify');
 const vueHamlet = require('./tools/vue-hamlet');
@@ -16,6 +17,7 @@ module.exports = (api, opts, rootOptions) => {
   api.extendPackage({
     dependencies: {
       axios: '^0.18.0',
+      'normalize.css': '^8.0.1',
     },
     devDependencies: {
 
@@ -31,6 +33,7 @@ module.exports = (api, opts, rootOptions) => {
   opts.ui === 'element' && element(api, opts, rootOptions);
   opts.ui === 'vuetify' && vuetify(api, opts, rootOptions);
 
+  opts.normalize && normalize(api);
   opts.hamlet && vueHamlet(api, opts);
   opts.moment && moment(api);
   opts.echarts && vueEcharts(api, opts);
