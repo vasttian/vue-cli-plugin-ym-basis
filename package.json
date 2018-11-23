@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-basis",
-  "version": "0.9.1-beta.5",
+  "version": "0.9.1-beta.6",
   "description": "Vue-CLI 3.x plugin for YM. Quickly build basic development templates.",
   "main": "index.js",
   "scripts": {
@@ -32,10 +32,10 @@
     "email": "tianyiming26@gmail.com"
   },
   "license": "MIT",
-  bugs": {
+  "bugs": {
     "url": "https://github.com/vasttian/vue-cli-plugin-basis/issues"
   },
-  homepage": "https://github.com/vasttian/vue-cli-plugin-basis#readme",
+  "homepage": "https://github.com/vasttian/vue-cli-plugin-basis#readme",
   "publishConfig": {
     "access": "public"
   },
