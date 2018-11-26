@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-basis",
-  "version": "0.9.1-beta.8",
+  "version": "0.9.1-beta.11",
   "description": "Vue-CLI 3.x plugin for YM. Quickly build basic development templates.",
   "main": "index.js",
   "scripts": {
