@@ -8,6 +8,9 @@
       "lintOn": [
         "save"
       ]
+    },
+    "vue-cli-plugin-basis": {
+      "prompts": true
     }
   },
   "router": true,
