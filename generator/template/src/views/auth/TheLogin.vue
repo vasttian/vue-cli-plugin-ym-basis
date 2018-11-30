@@ -28,6 +28,7 @@
           <el-form-item>
             <el-input
               size="medium"
+              clearable
               <%_ if (i18n === 'none') { _%>
               placeholder="用户名"
               <%_ } else { _%>
@@ -40,6 +41,7 @@
           <el-form-item>
             <el-input
               size="medium"
+              clearable
               <%_ if (i18n === 'none') { _%>
               placeholder="密码"
               <%_ } else { _%>
@@ -84,6 +86,7 @@
         </el-form>
       </div>
 
+      <%_ if (organization) { _%>
       <el-footer>
         <%_ if (i18n === 'none') { _%>
         © 2014 - {{ currentYear }} 深圳市一面网络技术有限公司 粤 ICP 备 14054704 号 - 4
@@ -91,6 +94,7 @@
         {{ $t('common.copyrightMessage', { currentYear }) }}
         <%_ } _%>
       </el-footer>
+      <%_ } _%>
       <%_ } else { _%>
       <v-app class="login-con">
         <!-- <v-spacer></v-spacer> -->
@@ -125,8 +129,9 @@
                     v-model="form.password"
                     prepend-icon="lock"
                     @keyup.enter.native="login"
-                    clearable
-                    type="password"
+                    :append-icon="showPwd ? 'visibility_off' : 'visibility'"
+                    :type="showPwd ? 'text' : 'password'"
+                    @click:append="showPwd = !showPwd"
                     <%_ if (i18n === 'none') { _%>
                     label="密码"
                     <%_ } else { _%>
@@ -171,6 +176,7 @@
           </v-container>
         </v-content>
 
+        <%_ if (organization) { _%>
         <v-footer
           color="#fbfbfb"
           height="auto">
@@ -184,6 +190,7 @@
             </v-flex>
           </v-layout>
         </v-footer>
+        <%_ } _%>
       </v-app>
       <%_ } _%>
     </div>
@@ -206,6 +213,9 @@ export default {
   data() {
     return {
       currentYear: (new Date()).getFullYear(),
+      <%_ if (ui === 'vuetify') { _%>
+      showPwd: false,
+      <%_ } _%>
       form: {
         username: 'general-demo',
         password: 'Ymdata123',
