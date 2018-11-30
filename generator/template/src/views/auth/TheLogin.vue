@@ -160,6 +160,7 @@
                     <v-flex>
                       <v-btn
                         :loading="loginLoading"
+                        color="primary"
                         @click="login">
                         <span slot="loader">Loading...</span>
                         <%_ if (i18n === 'none') { _%>
