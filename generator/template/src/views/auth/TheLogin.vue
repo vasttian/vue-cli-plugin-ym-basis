@@ -85,8 +85,8 @@
           </el-form-item>
         </el-form>
       </div>
-
       <%_ if (organization) { _%>
+
       <el-footer>
         <%_ if (i18n === 'none') { _%>
         © 2014 - {{ currentYear }} 深圳市一面网络技术有限公司 粤 ICP 备 14054704 号 - 4
@@ -175,8 +175,8 @@
             </v-layout>
           </v-container>
         </v-content>
-
         <%_ if (organization) { _%>
+
         <v-footer
           color="#fbfbfb"
           height="auto">

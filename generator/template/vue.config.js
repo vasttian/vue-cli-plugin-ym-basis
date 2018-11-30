@@ -1,5 +1,9 @@
 // example
+<%_ if (organization) { _%>
 const authApi = 'http://172.16.24.42:17510/';
+<%_ } else { _%>
+const authApi = 'xxx';
+<%_ } _%>
 const commonApi = 'xxx';
 
 module.exports = {

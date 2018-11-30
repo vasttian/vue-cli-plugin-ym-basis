@@ -36,6 +36,9 @@ module.exports = (api, opts, rootOptions) => {
   opts.normalize && normalize(api);
   opts.moment && moment(api);
   opts.echarts && vueEcharts(api, opts);
+  opts.organization && api.render({
+    './deploy': './tools/deploy',
+  }, opts);
 
   api.onCreateComplete(() => {
     // update main.js
