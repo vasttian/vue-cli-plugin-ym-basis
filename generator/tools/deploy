@@ -1,17 +1,18 @@
 #!/usr/bin/env sh
 cd $HOME/projects/<%= rootOptions.projectName %>
 git pull
-if [ -z "$1" ]
-  then
-    echo "Please deploy in specific mode like staging or production"
-elif [ "$1" = "staging" ]
-  then
-    npm run build-staging
+
+if [ "$1" = "staging" ]
+then
+  echo ">>>npm run build-staging"
+  npm run build-staging
 elif [ "$1" = "production" ]
-  then
-    npm run build
+then
+  echo ">>>npm run build"
+  npm run build
 else
-  echo "Please deploy in specific mode like staging or production"
+  echo "Please deploy in specific mode like staging or production."
+  exit
 fi
 
 sleep 2
@@ -19,12 +20,12 @@ FE_PATH=/data/www/<%= rootOptions.projectName %>
 FOLDER_DIST=${FE_PATH}/dist
 FOLDER_DIST_BAK=${FE_PATH}/dist_bak
 
-if [ ! -d ${FOLDER_DIST} ];
+if [ ! -d ${FOLDER_DIST} ]
 then
   mkdir ${FOLDER_DIST}
 fi
 
-if [ -d ${FOLDER_DIST_BAK} ];
+if [ -d ${FOLDER_DIST_BAK} ]
 then
   rm -rf ${FOLDER_DIST_BAK}
 fi
