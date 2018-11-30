@@ -4,6 +4,7 @@ const updateMain = require('./main');
 const updateEslintrc = require('./utils/eslintrc');
 const prettier = require('prettier');
 const i18n = require('./plugins/i18n');
+const normalize = require('./tools/normalize');
 const element = require('./tools/element');
 const vuetify = require('./tools/vuetify');
 const vueHamlet = require('./tools/vue-hamlet');
@@ -32,8 +33,12 @@ module.exports = (api, opts, rootOptions) => {
   opts.ui === 'vuetify' && vuetify(api, opts, rootOptions);
 
   opts.hamlet && vueHamlet(api, opts);
+  opts.normalize && normalize(api);
   opts.moment && moment(api);
   opts.echarts && vueEcharts(api, opts);
+  opts.organization && api.render({
+    './deploy': './tools/deploy',
+  }, opts);
 
   api.onCreateComplete(() => {
     // update main.js

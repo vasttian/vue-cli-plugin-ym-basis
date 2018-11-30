@@ -128,14 +128,16 @@ export default {
       en: 'Network Error',
       'zh-CN': '网络错误',
     },
-    copyrightMessage: {
-      en: '© 2014 - {currentYear} Shenzhen Yimian Network Technology Co.,Ltd.',
-      'zh-CN': '© 2014 - {currentYear} 深圳市一面网络技术有限公司 粤 ICP 备 14054704 号 - 4',
-    },
     all: {
       en: 'All',
       'zh-CN': '全部',
     },
+    <%_ if (organization) { _%>
+    copyrightMessage: {
+      en: '© 2014 - {currentYear} Shenzhen Yimian Network Technology Co.,Ltd.',
+      'zh-CN': '© 2014 - {currentYear} 深圳市一面网络技术有限公司 粤 ICP 备 14054704 号 - 4',
+    },
+    <%_ } _%>
   },
   rules: {
     require_password: {
@@ -157,6 +159,36 @@ export default {
     username_placeholder: {
       en: 'Input username',
       'zh-CN': '请输入用户名',
+    },
+  },
+  route: {
+    index: {
+      en: 'Index',
+      'zh-CN': '首页',
+    },
+    users: {
+      en: 'Users',
+      'zh-CN': '用户',
+    },
+    actions: {
+      en: 'Actions',
+      'zh-CN': '操作',
+    },
+    create: {
+      en: 'Create',
+      'zh-CN': '新增',
+    },
+    delete: {
+      en: 'Delete',
+      'zh-CN': '删除',
+    },
+    update: {
+      en: 'Update',
+      'zh-CN': '修改',
+    },
+    read: {
+      en: 'Read',
+      'zh-CN': '查询',
     },
   },
 };

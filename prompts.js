@@ -11,9 +11,21 @@
 
 module.exports = [
   {
+    name: 'organization',
+    type: 'confirm',
+    message: 'Are you a member of the yimian organization? There will be some special configurations',
+    default: false,
+  },
+  {
     name: 'hamlet',
     type: 'confirm',
-    message: 'Use vue-hamlet ? vue-hamlet is used as authentication for frontend.',
+    message: 'Use vue-hamlet? Vue-hamlet is used as authentication for frontend',
+    default: answers => answers.organization,
+  },
+  {
+    name: 'normalize',
+    type: 'confirm',
+    message: 'Use normalize.css? Normalize.css is used to make browsers render all elements more consistently',
     default: false,
   },
   {

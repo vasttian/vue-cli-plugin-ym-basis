@@ -2,6 +2,13 @@
   "useTaobaoRegistry": true,
   "useConfigFiles": true,
   "plugins": {
+    "prettier": {
+      "version": "^1.14.3"
+    },
+    "vue-cli-plugin-basis": {
+      "version": "^0.9.1-beta.11",
+      "prompts": true
+    },
     "@vue/cli-plugin-babel": {},
     "@vue/cli-plugin-eslint": {
       "config": "airbnb",

@@ -74,7 +74,14 @@
       <navbar-menu/>
 
       <v-spacer></v-spacer>
-      <v-menu offset-y>
+      <v-menu
+        attach
+        offset-y
+        bottom
+        left
+        nudge-bottom="10"
+        origin="center center"
+        transition="scale-transition">
         <v-toolbar-title slot="activator">
           <v-avatar size="40">
             <img

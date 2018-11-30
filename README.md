@@ -70,13 +70,13 @@ first follow the install instructions here: https://github.com/vuejs/vue-cli
 
 Create your new project with Vue-CLI 3.x:
 
-**Tip**: suggest you use the matching preset
+~~**Tip**: suggest you use the matching preset~~
 
-```bash
+~~```~~
 vue create --preset vasttian/vue-cli-plugin-basis my-app
-```
+~~```~~
 
-or
+~~or~~
 
 ```bash
 vue create my-app
