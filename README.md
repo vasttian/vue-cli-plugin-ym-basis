@@ -129,6 +129,7 @@ or replace `cnpm` with `npm`
 - [x] add: Remote Presets.
 - [x] mod: API process.
 - [x] refactor: project structure.
+- [ ] add: fabfile script.
 - [ ] mod: Styles folder.
 - [ ] ......
 - [ ] ......
