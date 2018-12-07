@@ -38,6 +38,7 @@ module.exports = (api, opts, rootOptions) => {
   opts.echarts && vueEcharts(api, opts);
   opts.organization && api.render({
     './deploy': './tools/deploy',
+    './fabfile.py': './tools/fabfile.py',
   }, opts);
 
   api.onCreateComplete(() => {

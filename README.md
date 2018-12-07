@@ -116,7 +116,7 @@ or replace `cnpm` with `npm`
 
 `npm config set registry https://registry.npm.taobao.org`
 
-### :white_check_mark: TODO
+### :white_check_mark: Roadmap
 - [x] add: `Element`.
 - [x] add: `Vuetify`.
 - [x] add: `Vue Hamlet`.
@@ -129,7 +129,8 @@ or replace `cnpm` with `npm`
 - [x] add: Remote Presets.
 - [x] mod: API process.
 - [x] refactor: project structure.
-- [ ] add: fabfile script.
+- [x] add: deploy script.
+- [x] add: fabfile script.
 - [ ] mod: Styles folder.
 - [ ] ......
 - [ ] ......
