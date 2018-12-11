@@ -29,7 +29,7 @@
 * [:book: Intro](#book-intro)
 * [:rocket: Getting Started](#rocket-getting-started)
 * [:arrow_down: Install](#arrow_down-install)
-* [:white_check_mark: TODO](#white_check_mark-todo)
+* [:white_check_mark: Roadmap](#white_check_mark-roadmap)
 * [:exclamation: Issues](#exclamation-issues)
 * [:copyright: License](#copyright-license)
 
