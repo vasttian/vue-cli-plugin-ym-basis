@@ -2,8 +2,9 @@
 Write your variables here. All available variables can be
 found in element-ui/packages/theme-chalk/src/common/var.scss or
 `https://github.com/ElemeFE/element/blob/dev/packages/theme-chalk/src/common/var.scss`.
+
+Tip: These must be declared before the import and will automatically override the Element defaults.
 For example, to overwrite the theme color:
-Tip: These must be declared before the import and will automatically override the Vuetify defaults.
 */
 // $--color-primary: teal;
 

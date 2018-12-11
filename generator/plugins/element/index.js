@@ -23,11 +23,11 @@ import {
   Footer, Tree, Aside,
 } from 'element-ui';
 <%_ } _%>
-import 'element-ui/lib/theme-chalk/index.css';
 <%_ if (opts.i18n !== 'none') { _%>
 import locale from 'element-ui/lib/locale';
 import zhLang from 'element-ui/lib/locale/lang/zh-CN';
 import enLang from 'element-ui/lib/locale/lang/en';
+import '../styles/element-variables.scss';
 import i18n from '../i18n';
 <%_ } _%>
 

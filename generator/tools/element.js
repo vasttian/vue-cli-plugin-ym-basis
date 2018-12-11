@@ -47,7 +47,7 @@ module.exports = (api, opts) => {
   api.injectImports(api.entryFile, "import './plugins/element';");
   const files = {
     './src/plugins/element.js': '../plugins/element/index.js',
-    './element-variables.scss': '../plugins/element/template/element-variables.scss',
+    './src/styles/element-variables.scss': '../plugins/element/template/element-variables.scss',
   };
 
   api.render(files, { opts });
