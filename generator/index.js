@@ -15,6 +15,9 @@ module.exports = (api, opts, rootOptions) => {
   api.render('./template', opts);
 
   api.extendPackage({
+    scripts: {
+      'build-staging': 'vue-cli-service build --mode staging',
+    },
     dependencies: {
       axios: '^0.18.0',
     },

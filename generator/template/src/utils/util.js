@@ -510,3 +510,29 @@ export function sortObject (obj, order = 'asc') {
 export function fistLetterUpper(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
+/**
+ * 判断是否是 IE 浏览器
+ * @return {Boolean} [description]
+ */
+export function isIE() {
+  return !!window.ActiveXObject || 'ActiveXObject' in window;
+}
+
+/**
+ * 阻止浏览器的冒泡行为
+ * @param {*} e
+ */
+export function stopBubble(e) {
+  e = e || window.event;
+  e.stopPropagation ? e.stopPropagation() : (e.cancelBubble = true);
+}
+
+/**
+ * 阻止浏览器的默认行为
+ * @param {*} e
+ */
+export function stopDefault( e ) {
+  e = e || window.event;
+  e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+}
