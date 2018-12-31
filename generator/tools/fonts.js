@@ -75,4 +75,5 @@ module.exports = {
   addDependencies,
   addImports,
   addLinks,
+  fonts,
 };

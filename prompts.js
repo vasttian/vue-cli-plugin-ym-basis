@@ -84,7 +84,7 @@ module.exports = [
     name: 'installFonts',
     type: 'confirm',
     message: 'Use fonts as a dependency (for Electron or offline)?',
-    default: false,
+    default: true,
   },
   {
     when: answers => answers.ui === 'vuetify',
@@ -114,6 +114,7 @@ module.exports = [
     name: 'echarts',
     type: 'confirm',
     message: 'Use Echarts (A powerful, interactive charting and visualization library for browser)?',
+    default: false,
   },
   // {
   //   when: answers => answers.i18n === 'vuei18n',
