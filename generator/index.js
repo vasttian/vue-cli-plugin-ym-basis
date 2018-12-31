@@ -21,9 +21,7 @@ module.exports = (api, opts, rootOptions) => {
     dependencies: {
       axios: '^0.18.0',
     },
-    devDependencies: {
-
-    },
+    devDependencies: {},
   });
 
   console.log('options:', opts);

@@ -54,6 +54,10 @@ import {
 } from 'vuetify';
 import 'vuetify/src/stylus/app.styl';
 <%_ } _%>
+<%_ if (opts.installFonts) { _%>
+import '<%= opts.fontsData.roboto.import %>';
+import '<%= opts.fontsData[opts.iconFont].import %>';
+<%_ } _%>
 <%_ if (opts.i18n !== 'none') { _%>
 import enLang from 'vuetify/es5/locale/en';
 import zhLang from 'vuetify/es5/locale/zh-Hans';

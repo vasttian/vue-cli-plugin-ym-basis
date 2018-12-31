@@ -42,7 +42,7 @@ module.exports = (api, opts, rootOptions) => {
   polyfill.addDependencies(api);
   opts.import === 'partial' && alaCarte.addDependencies(api);
   opts.installFonts && fonts.addDependencies(api, opts.iconFont);
-  opts.installFonts && fonts.addImports(api, opts.iconFont);
+  // opts.installFonts && fonts.addImports(api, opts.iconFont);
 
   api.injectImports(api.entryFile, "import './plugins/vuetify';");
   const files = {
@@ -52,7 +52,7 @@ module.exports = (api, opts, rootOptions) => {
     './src/components/snackbar/src/VMain.vue': '../plugins/vuetify/components/snackbar/src/VMain.vue',
   };
 
-  api.render(files, { opts }, { rootOptions });
+  api.render(files, { opts: { ...opts, fontsData: fonts.fonts }}, { rootOptions });
   if (opts.customTheme) {
     const files = {
       './src/stylus/main.styl': '../plugins/vuetify/template/stylus/main.styl',
