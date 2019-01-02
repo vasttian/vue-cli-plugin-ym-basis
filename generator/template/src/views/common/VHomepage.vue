@@ -10,7 +10,8 @@
       <v-chart
         :options="chartOption"
         style="width:100%;"
-        auto-resize/>
+        auto-resize
+      />
     </div>
     <%_ } _%>
     <%_ if (ui === 'vuetify') { _%>
@@ -22,7 +23,8 @@
             large
             :href="source"
             target="_blank"
-            slot="activator">
+            slot="activator"
+          >
             <v-icon large>code</v-icon>
           </v-btn>
           <span>Source</span>
@@ -33,7 +35,8 @@
         <v-chart
           style="width:100%;"
           :options="chartOption"
-          auto-resize/>
+          auto-resize
+        />
       </v-flex>
       <%_ } _%>
     </v-layout>
