@@ -40,15 +40,15 @@ Currently this is just a **beta version**.
 You can't use the `default` settings of Vue-CLI,
 you should use `Manually select features`:
 like([preset](https://github.com/vasttian/vue-cli-plugin-basis/blob/master/preset.json)):
->Vue CLI v3.2.1
-  ? Please pick a preset: Manually select features
-  ? Check the features needed for your project: Babel, Router, Vuex, CSS Pre-processors, Linter
-  ? Use history mode for router? (Requires proper server setup for index fallback in production) Yes
-  ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): Sass/SCSS
-  ? Pick a linter / formatter config: Airbnb
-  ? Pick additional lint features: Lint on save
-  ? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? In dedicated config files
-  ? Save this as a preset for future projects? No
+>Vue CLI v3.2.1<br>
+  ? Please pick a preset: Manually select features<br>
+  ? Check the features needed for your project: Babel, Router, Vuex, CSS Pre-processors, Linter<br>
+  ? Use history mode for router? (Requires proper server setup for index fallback in production) Yes<br>
+  ? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default): Sass/SCSS<br>
+  ? Pick a linter / formatter config: Airbnb<br>
+  ? Pick additional lint features: Lint on save<br>
+  ? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? In dedicated config files<br>
+  ? Save this as a preset for future projects? No<br>
 
 **If you switch from partial import to full import UI framework,
 You need to rerun the service.**
