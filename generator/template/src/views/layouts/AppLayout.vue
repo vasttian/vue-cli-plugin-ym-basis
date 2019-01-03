@@ -2,7 +2,8 @@
   <%_ if (ui === 'element') { _%>
   <el-container
     class="app-wrapper"
-    direction="vertical">
+    direction="vertical"
+  >
   <%_ } else if (ui === 'vuetify') { _%>
   <v-app class="app-wrapper">
   <%_ } else { _%>
@@ -10,19 +11,22 @@
   <%_ } _%>
     <app-navbar
       class="nav-container"
-      @toggleSidebar="toggleSidebar"/>
+      @toggleSidebar="toggleSidebar"
+    />
     <%_ if (ui === 'element') { _%>
     <el-container>
       <app-sidebar
         ref="sidebar"
-        class="sidebar-container"/>
-      <app-main class="main-container"/>
+        class="sidebar-container"
+      />
+      <app-main class="main-container" />
     </el-container>
     <%_ } else { _%>
     <app-sidebar
       ref="sidebar"
-      class="sidebar-container"/>
-    <app-main class="main-container"/>
+      class="sidebar-container"
+    />
+    <app-main class="main-container" />
     <%_ } _%>
   <%_ if (ui === 'element') { _%>
   </el-container>
@@ -46,9 +50,7 @@ export default {
     AppMain,
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   methods: {
     toggleSidebar() {

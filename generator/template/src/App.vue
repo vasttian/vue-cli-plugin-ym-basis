@@ -1,6 +1,6 @@
 <template>
   <div<% if ( ui !== 'vuetify') { %> id="app"<% } %>>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 

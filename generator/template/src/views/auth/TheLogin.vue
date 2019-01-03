@@ -1,12 +1,18 @@
 <template>
   <div class="panel-wrapper">
     <span class="logo">
-      <img src="../../assets/logo.png" alt="">
+      <img
+        src="../../assets/logo.png"
+        alt=""
+      >
     </span>
 
     <div class="slogan-wrapper">
       <div class="slogan">
-        <img src="../../assets/login-bg.svg" alt="">
+        <img
+          src="../../assets/login-bg.svg"
+          alt=""
+        >
       </div>
     </div>
 
@@ -56,7 +62,8 @@
             <el-col :span="12">
               <el-button
                 type="text"
-                @click="redirectForgotPassword">
+                @click="redirectForgotPassword"
+              >
                 <%_ if (i18n === 'none') { _%>
                 忘记密码?
                 <%_ } else { _%>
@@ -70,7 +77,8 @@
                 size="medium"
                 style="width:100%"
                 :disabled="loginLoading"
-                @click="login">
+                @click="login"
+              >
                 <%_ if (i18n === 'none') { _%>
                 登录
                 <%_ } else { _%>
@@ -102,8 +110,14 @@
           <%_ if (i18n !== 'none') { _%>
           <base-langbar/>
           <%_ } _%>
-          <v-container fluid fill-height>
-            <v-layout align-center justify-center>
+          <v-container
+            fluid
+            fill-height
+          >
+            <v-layout
+              align-center
+              justify-center
+            >
               <v-flex class="frame">
                 <h1 v-if="!isMobile">
                   <%_ if (i18n === 'none') { _%>
@@ -143,13 +157,15 @@
                     column
                     wrap
                     justify-end
-                    align-end>
+                    align-end
+                  >
                     <v-flex>
                       <v-btn
                         flat
                         small
                         color="primary"
-                        @click="redirectForgotPassword">
+                        @click="redirectForgotPassword"
+                      >
                         <%_ if (i18n === 'none') { _%>
                         忘记密码?
                         <%_ } else { _%>
@@ -161,7 +177,8 @@
                       <v-btn
                         :loading="loginLoading"
                         color="primary"
-                        @click="login">
+                        @click="login"
+                      >
                         <span slot="loader">Loading...</span>
                         <%_ if (i18n === 'none') { _%>
                         登录
@@ -180,7 +197,8 @@
 
         <v-footer
           color="#fbfbfb"
-          height="auto">
+          height="auto"
+        >
           <v-layout>
             <v-flex text-xs-center>
               <%_ if (i18n === 'none') { _%>

@@ -1,18 +1,23 @@
 <template>
   <%_ if (ui === 'element') { _%>
-  <el-header
-    class="flex-box space-btw">
+  <el-header class="flex-box space-btw">
     <span
       class="toggle-btn"
-      @click.stop="$emit('toggleSidebar')">
-      <img src="@/assets/baseline_menu_white_24dp.png" alt="">
+      @click.stop="$emit('toggleSidebar')"
+    >
+      <img
+        src="@/assets/baseline_menu_white_24dp.png"
+        alt=""
+      >
     </span>
 
     <!-- logo -->
-    <router-link
-      :to="{ path: '/' }">
+    <router-link :to="{ path: '/' }">
       <span class="logo">
-        <img src="@/assets/logo.png" alt="">
+        <img
+          src="@/assets/logo.png"
+          alt=""
+        >
       </span>
     </router-link>
 
@@ -26,7 +31,8 @@
           <span class="avatar flex-box">
             <img
               src="http://67.218.155.2:8082/cloud.jpg"
-              alt="Demo">
+              alt="Demo"
+            >
           </span>
           <span>{{ user && user.username }}</span>
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -49,7 +55,7 @@
         </el-dropdown-menu>
       </el-dropdown>
       <%_ if (i18n !== 'none') { _%>
-      <base-langbar/>
+      <base-langbar />
       <%_ } _%>
     </div>
   </el-header>
@@ -62,16 +68,16 @@
       flat
       dense
       height="56"
-      :clipped-left="true">
-      <v-toolbar-side-icon
-        @click.stop="$emit('toggleSidebar')"></v-toolbar-side-icon>
+      :clipped-left="true"
+    >
+      <v-toolbar-side-icon @click.stop="$emit('toggleSidebar')"></v-toolbar-side-icon>
       <v-toolbar-title v-if="$vuetify && $vuetify.breakpoint.smAndUp">
         <%= rootOptions.projectName.toUpperCase() %>
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
       <!-- menu -->
-      <navbar-menu/>
+      <navbar-menu />
 
       <v-spacer></v-spacer>
       <v-menu
@@ -81,12 +87,14 @@
         left
         nudge-bottom="10"
         origin="center center"
-        transition="scale-transition">
+        transition="scale-transition"
+      >
         <v-toolbar-title slot="activator">
           <v-avatar size="40">
             <img
               src="http://67.218.155.2:8082/cloud.jpg"
-              alt="Demo">
+              alt="Demo"
+            >
           </v-avatar>
           <span style="margin-left: 5px;font-weight: 500;font-size: 16px;">
             {{ user && user.username }}
@@ -115,7 +123,7 @@
         </v-list>
       </v-menu>
       <%_ if (i18n !== 'none') { _%>
-      <base-langbar/>
+      <base-langbar />
       <%_ } _%>
     </v-toolbar>
   </header>

@@ -4,10 +4,12 @@
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
-      :collapse="!drawer">
+      :collapse="!drawer"
+    >
       <el-submenu
         index="1"
-        :style="{ width: drawer ? '199px' : '60px' }">
+        :style="{ width: drawer ? '199px' : '60px' }"
+      >
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">导航一</span>
@@ -29,7 +31,10 @@
         <i class="el-icon-menu"></i>
         <span slot="title">导航二</span>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
+      <el-menu-item
+        index="3"
+        disabled
+      >
         <i class="el-icon-document"></i>
         <span slot="title">导航三</span>
       </el-menu-item>
@@ -47,7 +52,8 @@
     fixed
     app
     :mini-variant="miniVariant"
-    v-model="drawer">
+    v-model="drawer"
+  >
     <v-list>
       <v-list-tile>
         <v-list-tile-action>
@@ -58,7 +64,8 @@
 
       <v-list-group
         prepend-icon="account_circle"
-        value="true">
+        value="true"
+      >
         <v-list-tile slot="activator">
           <v-list-tile-title>Users</v-list-tile-title>
         </v-list-tile>
@@ -66,14 +73,16 @@
         <v-list-group
           no-action
           sub-group
-          value="true">
+          value="true"
+        >
           <v-list-tile slot="activator">
             <v-list-tile-title>Admin</v-list-tile-title>
           </v-list-tile>
 
           <v-list-tile
             v-for="(admin, i) in admins"
-            :key="i">
+            :key="i"
+          >
             <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
             <v-list-tile-action>
               <v-icon v-text="admin[1]"></v-icon>
@@ -83,14 +92,16 @@
 
         <v-list-group
           sub-group
-          no-action>
+          no-action
+        >
           <v-list-tile slot="activator">
             <v-list-tile-title>Actions</v-list-tile-title>
           </v-list-tile>
 
           <v-list-tile
             v-for="(crud, i) in cruds"
-            :key="i">
+            :key="i"
+          >
             <v-list-tile-title v-text="crud[0]"></v-list-tile-title>
             <v-list-tile-action>
               <v-icon v-text="crud[1]"></v-icon>
@@ -141,8 +152,8 @@ export default {
 <%_ if (ui === 'element') { _%>
 
 <style>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-  }
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+}
 </style>
 <%_ } _%>

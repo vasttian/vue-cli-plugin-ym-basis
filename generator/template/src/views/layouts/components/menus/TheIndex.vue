@@ -6,14 +6,16 @@
     text-color="#fff"
     background-color="#065bc9"
     active-text-color="#21d5cb"
-    router>
+    router
+  >
     <template v-for="(route, index) in routes">
       <template v-if="!route.children">
         <el-menu-item
           v-if="roleShow(route)"
           :key="index"
           :index="route.name"
-          :route="route">
+          :route="route"
+        >
           <span slot="title">
             <%_ if (i18n === 'none') { _%>
             {{ route.name }}
@@ -27,7 +29,8 @@
         <el-submenu
           v-if="roleShow(route)"
           :index="route.name"
-          :key="index">
+          :key="index"
+        >
           <span slot="title">
             <%_ if (i18n === 'none') { _%>
             {{ route.name }}
@@ -39,7 +42,8 @@
             v-for="(cRoute, idx) in route.children"
             :key="idx"
             :index="cRoute.name"
-            :route="cRoute">
+            :route="cRoute"
+          >
             <span slot="title">
               <%_ if (i18n === 'none') { _%>
               {{ cRoute.name }}
@@ -55,7 +59,8 @@
           v-if="roleShow(route.children[0])"
           :key="index"
           :index="getRouteName(route)"
-          :route="route.children[0]">
+          :route="route.children[0]"
+        >
           <span slot="title">
             <%_ if (i18n === 'none') { _%>
             {{ getRouteName(route) }}
@@ -76,7 +81,8 @@
           flat
           :key="index"
           :input-value="activeMenu === route.name"
-          :to="{ name: route.name }">
+          :to="{ name: route.name }"
+        >
           <%_ if (i18n === 'none') { _%>
           {{ route.name }}
           <%_ } else { _%>
@@ -91,7 +97,8 @@
           offset-y
           :key="index"
           origin="bottom center"
-          transition="scale-transition">
+          transition="scale-transition"
+        >
           <v-btn
             slot="activator"
             flat>
@@ -106,7 +113,8 @@
             <v-list-tile
               v-for="(cRoute, idx) in route.children"
               :to="{ name: cRoute.name }"
-              :key="idx">
+              :key="idx"
+            >
               <v-list-tile-action v-if="cRoute.meta && cRoute.meta.icon">
                 <v-icon>{{ cRoute.meta.icon }}</v-icon>
               </v-list-tile-action>
@@ -129,7 +137,8 @@
           flat
           :key="index"
           :input-value="activeMenu === getRouteName(route)"
-          :to="{ name: getRouteName(route) }">
+          :to="{ name: getRouteName(route) }"
+        >
           <%_ if (i18n === 'none') { _%>
           {{ getRouteName(route) }}
           <%_ } else { _%>
