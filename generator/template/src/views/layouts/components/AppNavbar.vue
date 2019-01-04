@@ -147,9 +147,7 @@ export default {
     NavbarMenu,
   },
   data() {
-    return {
-
-    };
+    return {};
   },
   computed: {
     activeMenu() {
@@ -211,7 +209,6 @@ export default {
       <%_ } _%>
     },
   },
-  created() {
-  },
+  created() {},
 };
 </script>

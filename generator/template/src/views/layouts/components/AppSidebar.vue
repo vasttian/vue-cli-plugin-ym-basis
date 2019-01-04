@@ -139,9 +139,7 @@ export default {
       <%_ } _%>
     };
   },
-  computed: {
-
-  },
+  computed: {},
   methods: {
     toggleSidebar() {
       this.drawer = !this.drawer;

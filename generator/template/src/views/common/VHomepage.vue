@@ -284,8 +284,7 @@ export default {
       <%_ } _%>
     };
   },
-  methods: {
-  },
+  methods: {},
 };
 </script>
 

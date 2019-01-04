@@ -157,9 +157,7 @@
 export default {
   name: 'Menus',
   data() {
-    return {
-
-    };
+    return {};
   },
   computed: {
     user() {
