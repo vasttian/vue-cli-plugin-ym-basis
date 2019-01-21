@@ -98,10 +98,12 @@
       color: #5d7498;
       margin-bottom: 40px;
     }
+    <%_ if (ui === 'element') { _%>
 
     .el-button--large {
       margin-top: 0;
     }
+    <%_ } _%>
   }
 
   <%_ if (ui === 'element') { _%>
