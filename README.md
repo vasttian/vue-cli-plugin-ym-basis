@@ -38,7 +38,7 @@
 Currently this is just a **beta version**.
 
 You can't use the `default` settings of Vue-CLI,
-you should use `Manually select features`:
+you should use `Manually select features`:<br>
 like([preset](https://github.com/vasttian/vue-cli-plugin-basis/blob/master/preset.json)):
 >Vue CLI v3.2.1<br>
   ? Please pick a preset: Manually select features<br>
