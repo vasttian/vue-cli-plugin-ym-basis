@@ -4,9 +4,6 @@ from fabric.api import hosts, env
 from fabric.context_managers import cd
 from fabric.operations import local, put, run
 
-# env.hosts = ['172.16.24.42', '172.16.24.36', '172.16.24.38']
-# env.key_filename = "~/.ssh/yimian"
-
 
 def deploy(build, project_root):
     if build == 'prod':

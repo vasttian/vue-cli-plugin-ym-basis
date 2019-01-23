@@ -3,7 +3,9 @@ html, body {
   // height: 100%;
   margin: 0;
   padding: 0;
+  <%_ if (ui === 'vuetify') { _%>
   overflow-y: auto !important;
+  <%_ } _%>
 }
 
 * {
@@ -32,6 +34,9 @@ ul, li {
   position: relative;
   height: 100%;
   width: 100%;
+  <%_ if (ui === 'element') { _%>
+  overflow-y: auto !important;
+  <%_ } _%>
 }
 
 <%_ if (ui === 'element') { _%>
