@@ -329,13 +329,6 @@ export default {
       <%_ } _%>
       <%_ } _%>
     },
-    <%_ if (i18n !== 'none') { _%>
-    switchLang(lang) {
-      this.currentLang = lang;
-      this.$locale.use(lang);
-      localStorage.setItem('<%= rootOptions.projectName.toUpperCase() %>_LANGUAGE', lang);
-    },
-    <%_ } _%>
     redirectForgotPassword() {
       <%_ if (hamlet) { _%>
       window.open(`${process.env.VUE_APP_HAMLET_URL}/forgot_password?app_key=${process.env.VUE_APP_APP_KEY}&callback_url=${document.location.href}`);
