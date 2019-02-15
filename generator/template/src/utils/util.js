@@ -45,26 +45,26 @@ export function deepCopy(obj, cache = []) {
   })
 
   return copy
-}
+};
 
 /**
  * forEach for object
  */
 export function forEachValue(obj, fn) {
   Object.keys(obj).forEach(key => fn(obj[key], key))
-}
+};
 
 export function isObject(obj) {
   return obj !== null && typeof obj === 'object'
-}
+};
 
 export function isPromise(val) {
   return val && typeof val.then === 'function'
-}
+};
 
 export function assert(condition, msg) {
   if (!condition) throw new Error(`[vuex] ${msg}`)
-}
+};
 
 
 export function getValueByPath(object, prop) {
@@ -129,6 +129,7 @@ export function compare(a, b) {
 
     return 0;
   }
+
   if (typeof a === 'number' && typeof b === 'number') {
     if (a > b) {
       return 1;
@@ -170,7 +171,7 @@ export function isEmptyObject(e) {
 
 export function simpleDeepCopy(obj) {
   return JSON.parse(JSON.stringify(obj));
-}
+};
 
 export function deepCompare() {
   var i, l, leftChain, rightChain;
@@ -281,7 +282,7 @@ export function deepCompare() {
   }
 
   return true;
-}
+};
 
 export function isFloat(oNum) {
   if (oNum === 0) {
@@ -307,7 +308,7 @@ export function isFloat(oNum) {
   }
 
   return true;
-}
+};
 
 /**
  * 产生任意长度随机字母数字组合
@@ -337,7 +338,7 @@ export function randomWord(randomFlag, min, max) {
   }
 
   return str;
-}
+};
 
 function random(min, max) {
   return Math.floor(Math.random() * ((max - min) + 1)) + min;
@@ -364,7 +365,7 @@ export function randomPassword() {
   }
 
   return psw;
-}
+};
 
 /**
  * 解析 URL
@@ -394,9 +395,9 @@ export function parseURL(ourl) {
     params: (function() {
       const ret = {};
       const seg = a.search.replace(/^\?/, '').split('&').filter(function(v, i) {
-          if (v !== '' && v.indexOf('=')) {
-            return true;
-          }
+        if (v !== '' && v.indexOf('=')) {
+          return true;
+        }
       });
       seg.forEach(function(element, index) {
         const idx = element.indexOf('=');
@@ -416,16 +417,15 @@ export function parseURL(ourl) {
   // origin末尾加个/
   if (ret.origin && !/\/$/.test(ret.origin)) ret.origin += '/';
   return ret;
-}
+};
 
 export function toUpperCase(str) {
   return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
-}
+};
 
 export function isMobile() {
-  // return true;
   return !!navigator.userAgent.match(/mobile/i);
-}
+};
 
 export function getDomain () {
   let s = window.location.pathname.split('/');
@@ -436,7 +436,7 @@ export function getDomain () {
   }
 
   return '';
-}
+};
 
 export function b64toBlob(b64Data, contentType, sliceSize) {
   contentType = contentType || '';
@@ -447,14 +447,13 @@ export function b64toBlob(b64Data, contentType, sliceSize) {
 
   for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
     const slice = byteCharacters.slice(offset, offset + sliceSize);
-
     const byteNumbers = new Array(slice.length);
+
     for (let i = 0; i < slice.length; i++) {
       byteNumbers[i] = slice.charCodeAt(i);
     }
 
     const byteArray = new Uint8Array(byteNumbers);
-
     byteArrays.push(byteArray);
   }
 
@@ -462,6 +461,10 @@ export function b64toBlob(b64Data, contentType, sliceSize) {
   return blob;
 }
 
+/**
+ * 添加千位分隔符
+ * @param {数值} val
+ */
 export function addCommas(val) {
   if (val === '-') {
     return val;
@@ -486,8 +489,13 @@ export function addCommas(val) {
   }
 
   return flag ? `${aIntNum.join('.')}%` : aIntNum.join('.');
-}
+};
 
+/**
+ * 对象排序
+ * @param {*} obj
+ * @param {*} order
+ */
 export function sortObject (obj, order = 'asc') {
   const keys = Object.keys(obj)
   const sortedKeys = order === 'asc' ? keys.sort() : keys.reverse()
@@ -502,7 +510,7 @@ export function sortObject (obj, order = 'asc') {
     }
     return val
   }, {})
-}
+};
 
 /**
 * 字符串的首字母大写
@@ -515,9 +523,9 @@ export function fistLetterUpper(str) {
  * 判断是否是 IE 浏览器
  * @return {Boolean} [description]
  */
-export function isIE() {
-  return !!window.ActiveXObject || 'ActiveXObject' in window;
-}
+// export function isIE() {
+//   return !!window.ActiveXObject || 'ActiveXObject' in window;
+// };
 
 /**
  * 阻止浏览器的冒泡行为
@@ -526,7 +534,7 @@ export function isIE() {
 export function stopBubble(e) {
   e = e || window.event;
   e.stopPropagation ? e.stopPropagation() : (e.cancelBubble = true);
-}
+};
 
 /**
  * 阻止浏览器的默认行为
@@ -535,4 +543,18 @@ export function stopBubble(e) {
 export function stopDefault( e ) {
   e = e || window.event;
   e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-}
+};
+
+// Browser environment sniffing
+export const inBrowser = typeof window !== 'undefined'
+export const inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform
+export const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase()
+export const UA = inBrowser && window.navigator.userAgent.toLowerCase()
+export const isIE = UA && /msie|trident/.test(UA)
+export const isIE9 = UA && UA.indexOf('msie 9.0') > 0
+export const isEdge = UA && UA.indexOf('edge/') > 0
+export const isAndroid = (UA && UA.indexOf('android') > 0) || (weexPlatform === 'android')
+export const isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || (weexPlatform === 'ios')
+export const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge
+export const isPhantomJS = UA && /phantomjs/.test(UA)
+export const isFF = UA && UA.match(/firefox\/(\d+)/)
