@@ -4,7 +4,7 @@ function addLocale(api, rootOptions, lines, lastImportIndex) {
   lines[lastImportIndex] += '\n';
   lines[lastImportIndex] += `
 const supportedLangs = ['zh-CN', 'en'];
-const userLocale = navigator.language || navigator.userLanguage;
+let userLocale = navigator.language || navigator.userLanguage;
 
 if (userLocale.match(/^zh/i)) {
   userLocale = 'zh';
