@@ -19,6 +19,7 @@ def deploy(build, project_root):
         put('dist', 'deploy')
         run('rm -rf dist_bak')
         run('mv dist dist_bak', quiet=True)
+        run('rm -rf dist')
         run('mv deploy/dist dist')
         run('rm -rf deploy')
 

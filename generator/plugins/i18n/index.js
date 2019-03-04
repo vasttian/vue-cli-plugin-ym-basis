@@ -6,6 +6,12 @@ function addLocale(api, rootOptions, lines, lastImportIndex) {
 const supportedLangs = ['zh-CN', 'en'];
 const userLocale = navigator.language || navigator.userLanguage;
 
+if (userLocale.match(/^zh/i)) {
+  userLocale = 'zh';
+} else if (userLocale.match(/^en/i)) {
+  userLocale = 'en';
+}
+
 Vue.router.beforeEach((to, from, next) => {
   const { locale } = to.query;
 

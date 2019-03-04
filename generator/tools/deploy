@@ -20,21 +20,23 @@ FE_PATH=/data/www/<%= rootOptions.projectName %>
 FOLDER_DIST=${FE_PATH}/dist
 FOLDER_DIST_BAK=${FE_PATH}/dist_bak
 
-if [ ! -d ${FOLDER_DIST} ]
+if [ ! -d ${FE_PATH} ]
 then
+  # rm -rf ${FE_PATH}
+  mkdir ${FE_PATH}
+fi
+
+rm -rf ${FOLDER_DIST_BAK}
+
+if [ -d ${FOLDER_DIST} ]
+then
+  /bin/cp -r ${FOLDER_DIST} ${FOLDER_DIST_BAK}
+  rm -rf ${FOLDER_DIST}
   mkdir ${FOLDER_DIST}
-fi
-
-if [ -d ${FOLDER_DIST_BAK} ]
-then
-  rm -rf ${FOLDER_DIST_BAK}
-fi
-
-if [ -e $FOLDER_DIST ]
-then
-  /bin/cp -r $FOLDER_DIST ${FOLDER_DIST_BAK}
   /bin/cp -rf ./dist/. ${FOLDER_DIST}/
 else
-  /bin/cp -rf ./dist ${FOLDER_DIST}
-  /bin/cp -r $FOLDER_DIST ${FOLDER_DIST_BAK}
+  rm -rf ${FOLDER_DIST}
+  mkdir ${FOLDER_DIST}
+  /bin/cp -rf ./dist/. ${FOLDER_DIST}/
+  /bin/cp -r ${FOLDER_DIST} ${FOLDER_DIST_BAK}
 fi
