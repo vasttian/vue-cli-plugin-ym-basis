@@ -33,8 +33,8 @@ module.exports = {
   runtimeCompiler: true,
   <%_ if (echarts) { _%>
   transpileDependencies: [
-    /\/node_modules\/vue-echarts\//,
-    /\/node_modules\/resize-detector\//,
+    'vue-echarts',
+    'resize-detector',
   ],
   <%_ } _%>
 };

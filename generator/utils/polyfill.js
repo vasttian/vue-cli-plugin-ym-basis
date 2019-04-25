@@ -3,7 +3,7 @@ const helpers = require('./helpers');
 function addDependencies(api) {
   api.extendPackage({
     dependencies: {
-      '@babel/polyfill': '^7.0.0-rc.1',
+      '@babel/polyfill': '^7.4.0',
     },
   });
 }

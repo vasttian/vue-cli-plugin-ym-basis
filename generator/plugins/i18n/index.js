@@ -37,7 +37,7 @@ module.exports = (api, opts, rootOptions) => {
   api.render('./template', opts);
   api.extendPackage({
     dependencies: {
-      'vue-i18n': '^8.0.0',
+      'vue-i18n': '^8.10.0',
     },
   });
   api.injectImports(api.entryFile, "import i18n from './i18n';");

@@ -22,7 +22,7 @@ Vue.filter('formatDate', (v, isUTC = true, dateFormat = 'YYYY-MM-DD HH:mm:ss') =
 module.exports = (api) => {
   api.extendPackage({
     dependencies: {
-      moment: '^2.22.2',
+      moment: '^2.24.0',
     },
   });
   api.onCreateComplete(() => {
