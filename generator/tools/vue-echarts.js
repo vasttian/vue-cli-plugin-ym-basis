@@ -1,7 +1,8 @@
 module.exports = (api, opts) => {
   api.extendPackage({
     dependencies: {
-      'vue-echarts': '^3.1.3',
+      'vue-echarts': '^4.0.1',
+      echarts: '^4.2.1',
     },
   });
 
