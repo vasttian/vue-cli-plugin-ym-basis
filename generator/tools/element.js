@@ -30,7 +30,7 @@ function removeComponentPlugin(api) {
 module.exports = (api, opts) => {
   api.extendPackage({
     dependencies: {
-      'element-ui': '^2.7.2',
+      'element-ui': '^2.10.1',
     },
   });
 
