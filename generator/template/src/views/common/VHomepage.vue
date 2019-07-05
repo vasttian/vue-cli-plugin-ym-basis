@@ -35,7 +35,7 @@
         <v-chart
           style="width:100%;"
           :options="chartOption"
-          auto-resize
+          autoresize
         />
       </v-flex>
       <%_ } _%>
