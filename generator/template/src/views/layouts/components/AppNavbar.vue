@@ -30,7 +30,7 @@
         <span class="el-dropdown-link userinfo flex-box">
           <span class="avatar flex-box">
             <img
-              src="http://67.218.155.2:8082/cloud.jpg"
+              src="http://67.218.155.117:8082/cloud.jpg"
               alt="Demo"
             >
           </span>
@@ -92,7 +92,7 @@
         <v-toolbar-title slot="activator">
           <v-avatar size="40">
             <img
-              src="http://67.218.155.2:8082/cloud.jpg"
+              src="http://67.218.155.117:8082/cloud.jpg"
               alt="Demo"
             >
           </v-avatar>
