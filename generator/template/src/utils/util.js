@@ -465,7 +465,7 @@ export function b64toBlob(b64Data, contentType, sliceSize) {
  * 添加千位分隔符
  * @param {数值} val
  */
-export function addCommas(val) {
+export function addThousandSeparator(val) {
   if (val === '-') {
     return val;
   }
@@ -480,7 +480,7 @@ export function addCommas(val) {
 
   const aIntNum = valStr.split('.');
 
-  aIntNum[0] = aIntNum[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+  aIntNum[0] = aIntNum[0].replace(/(\d)(?=(\d{3})+$)/g, '$1, ');
   // if (aIntNum[0].length >= 5) {
   // }
 
