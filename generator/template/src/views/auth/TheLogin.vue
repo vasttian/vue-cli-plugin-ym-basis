@@ -250,6 +250,7 @@ export default {
       return isMobile();
     },
   },
+  created() {},
   methods: {
     login() {
       <%_ if (hamlet) { _%>
@@ -348,7 +349,6 @@ export default {
       <%_ } _%>
     },
   },
-  created() {},
 };
 </script>
 
