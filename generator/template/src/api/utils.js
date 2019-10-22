@@ -27,7 +27,7 @@ service.interceptors.request.use((request) => {
 
 service.interceptors.response.use(response => response, (error) => {
   console.log('http error', error);
-  return Promise.reject(error.status ? error : error.response);
+  return Promise.reject(error.status ? error : error.response || error);
 });
 
 function access(url, param, method) {
@@ -57,7 +57,7 @@ function access(url, param, method) {
     // When successful, the body data is returned;
     // when it fails, it returns res,
     // in order to ensure the same as the return value of the http request error.
-    if (res.data.ok) {
+    if (res.data && res.data.ok) {
       return res.data;
     }
 
@@ -65,14 +65,15 @@ function access(url, param, method) {
   }, (res) => {
     // FIXME: This is not the best method.
     let errMsg = '';
+    const { status } = res;
 
-    if (res.status === 401) {
+    if (status === 401) {
       errMsg = '您无权访问该页面';
-    } else if (res.status === 403) {
+    } else if (status === 403) {
       errMsg = '禁止访问';
-    } else if (res.status === 404) {
+    } else if (status === 404) {
       errMsg = '您访问的页面不存在了';
-    } else if (res.status === 500) {
+    } else if (status === 500) {
       errMsg = '服务器出了一点问题，请联系管理员';
     }
 
