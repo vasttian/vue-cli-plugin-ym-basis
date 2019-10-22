@@ -30,7 +30,7 @@ service.interceptors.response.use(response => response, (error) => {
   return Promise.reject(error.status ? error : error.response || error);
 });
 
-function access(url, param, method) {
+function access(url, param, method, extraParameter = {}) {
   param = param || {};
   // if (window.location.search.indexOf('debug') > -1) {
   //   param.debug = true;
@@ -41,11 +41,12 @@ function access(url, param, method) {
 
   /* eslint-disable no-underscore-dangle */
   const __randNum = Math.random();
+  // console.log('>>>>extraParameter:', extraParameter);
 
   if (upperMethod === 'POST') {
-    ret = service.post(url, param, { params: { __randNum } });
+    ret = service.post(url, param, { ...extraParameter, params: { __randNum } });
   } else if (upperMethod === 'PUT') {
-    ret = service.put(url, param, { params: { __randNum } });
+    ret = service.put(url, param, { ...extraParameter, params: { __randNum } });
   } else if (upperMethod === 'DELETE') {
     ret = service.delete(url, { params: { ...param, __randNum } });
   } else {
@@ -97,10 +98,10 @@ export default {
   delete(url, param) {
     return access(url, param, 'delete');
   },
-  post(url, param) {
-    return access(url, param, 'post');
+  post(url, param, extraParameter) {
+    return access(url, param, 'post', extraParameter);
   },
-  put(url, param) {
-    return access(url, param, 'put');
+  put(url, param, extraParameter) {
+    return access(url, param, 'put', extraParameter);
   },
 };
