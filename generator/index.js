@@ -23,7 +23,7 @@ module.exports = (api, opts, rootOptions) => {
     },
     devDependencies: {},
   });
-
+  delete opts.registry;
   console.log('options:', opts);
   updatePremain(api, opts);
   if (opts.i18n !== 'none') {
