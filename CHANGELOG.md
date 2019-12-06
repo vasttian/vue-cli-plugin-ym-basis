@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.7](https://github.com/vasttian/vue-cli-plugin-basis/compare/v0.9.6...v0.9.7) (2019-12-06)
+
 ### [0.9.6](https://github.com/vasttian/vue-cli-plugin-basis/compare/v0.9.4-rc.0...v0.9.6) (2019-12-06)
 
 
