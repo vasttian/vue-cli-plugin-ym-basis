@@ -48,9 +48,9 @@
   <v-navigation-drawer
     class="blue-grey lighten-5"
     width="210"
-    :clipped="$vuetify && $vuetify.breakpoint.mdAndUp"
     fixed
     app
+    :clipped="$vuetify && $vuetify.breakpoint.mdAndUp"
     :mini-variant="miniVariant"
     v-model="drawer"
   >

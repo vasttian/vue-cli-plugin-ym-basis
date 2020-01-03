@@ -93,9 +93,9 @@
       <template v-else-if="route.meta && route.meta.hasMulSub">
         <v-menu
           v-if="roleShow(route)"
+          :key="index"
           bottom
           offset-y
-          :key="index"
           origin="bottom center"
           transition="scale-transition"
         >
@@ -112,8 +112,8 @@
           <v-list :key="index">
             <v-list-tile
               v-for="(cRoute, idx) in route.children"
-              :to="{ name: cRoute.name }"
               :key="idx"
+              :to="{ name: cRoute.name }"
             >
               <v-list-tile-action v-if="cRoute.meta && cRoute.meta.icon">
                 <v-icon>{{ cRoute.meta.icon }}</v-icon>
@@ -134,8 +134,8 @@
       <template v-else>
         <v-btn
           v-if="roleShow(route.children[0])"
-          flat
           :key="index"
+          flat
           :input-value="activeMenu === getRouteName(route)"
           :to="{ name: getRouteName(route) }"
         >

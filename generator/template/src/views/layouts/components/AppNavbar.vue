@@ -209,6 +209,5 @@ export default {
       <%_ } _%>
     },
   },
-  created() {},
 };
 </script>
