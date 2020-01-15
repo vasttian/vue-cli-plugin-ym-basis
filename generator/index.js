@@ -16,7 +16,7 @@ module.exports = (api, opts, rootOptions) => {
 
   api.extendPackage({
     scripts: {
-      'build-staging': 'vue-cli-service build --mode staging',
+      'build-test': 'vue-cli-service build --mode test',
     },
     dependencies: {
       axios: '^0.18.0',

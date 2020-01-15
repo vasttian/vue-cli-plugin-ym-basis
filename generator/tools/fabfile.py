@@ -8,10 +8,10 @@ from fabric.operations import local, put, run
 def deploy(build, project_root):
     if build == 'prod':
         local('npm run build')
-    elif build == 'staging':
-        local('npm run build-staging')
+    elif build == 'test':
+        local('npm run build-test')
     else:
-        print("Please deploy in specific mode like staging or production.")
+        print("Please deploy in specific mode like test or production.")
         return
 
     with cd(project_root):
@@ -42,17 +42,17 @@ def deploy_prod(build='prod'):
 
 
 @hosts('ymtest@172.16.24.42')
-def deploy_staging(build='staging'):
+def deploy_test(build='test'):
     """部署到测试环境
 
     # 发布前编译
-    fab deploy_staging:build=staging
-    fab deploy_staging:staging
-    fab deploy_staging
+    fab deploy_test:build=test
+    fab deploy_test:test
+    fab deploy_test
 
     # 不编译
-    fab deploy_staging:build=no
-    fab deploy_staging:no
+    fab deploy_test:build=no
+    fab deploy_test:no
     """
     project_root = '/data/www/<%= rootOptions.projectName %>/'
     deploy(build, project_root)
