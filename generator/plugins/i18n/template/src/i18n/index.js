@@ -26,13 +26,16 @@ const getLocale = (lang, lcs) => {
   return locale;
 };
 
-const enLocale = Object.assign({}, getLocale('en', locales), enLang);
-const zhLocale = Object.assign({}, getLocale('zh-CN', locales), zhLang);
 const messages = {
-  en: enLocale,
-  'zh-CN': zhLocale,
+  en: {
+    ...getLocale('en', locales),
+    ...enLang,
+  },
+  'zh-CN': {
+    ...getLocale('zh-CN', locales),
+    ...zhLang,
+  },
 };
-
 export default new VueI18n({
   locale: 'zh-CN',
   messages,
