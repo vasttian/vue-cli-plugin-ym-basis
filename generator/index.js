@@ -9,6 +9,7 @@ const element = require('./tools/element');
 const vuetify = require('./tools/vuetify');
 const vueHamlet = require('./tools/vue-hamlet');
 const moment = require('./tools/moment');
+const ymSvgSprite = require('./tools/ym-svg-sprite');
 const vueEcharts = require('./tools/vue-echarts');
 
 module.exports = (api, opts, rootOptions) => {
@@ -36,6 +37,7 @@ module.exports = (api, opts, rootOptions) => {
   opts.hamlet && vueHamlet(api, opts);
   opts.normalize && normalize(api);
   opts.moment && moment(api);
+  opts.ymSvgSprite && ymSvgSprite(api);
   opts.echarts && vueEcharts(api, opts);
   opts.organization && api.render({
     './deploy': './tools/deploy',

@@ -111,6 +111,12 @@ module.exports = [
     default: true,
   },
   {
+    name: 'ymSvgSprite',
+    type: 'confirm',
+    message: 'Use ym-svg-sprite? ym-svg-sprite is used to build svg sprite in vue',
+    default: true,
+  },
+  {
     name: 'echarts',
     type: 'confirm',
     message: 'Use Echarts (A powerful, interactive charting and visualization library for browser)?',
