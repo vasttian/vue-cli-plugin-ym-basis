@@ -1,9 +1,12 @@
 <template>
   <div>
-    <div style="text-align:center; margin-bottom:70px;">
+    <div style="text-align:center; margin-bottom:50px;">
       <h2>Hello, Welcome to come here.</h2>
       <h3>TIP: This is a beta version.</h3>
       <h3>Start your creation as much as you can.</h3>
+      <%_ if (ymSvgSprite) { _%>
+      <ym-svg svg-name="svg-demo" />
+      <%_ } _%>
     </div>
     <%_ if (ui === 'element' && echarts) { _%>
     <div style="display:flex; justify-content:center;">
@@ -35,7 +38,7 @@
         <v-chart
           style="width:100%;"
           :options="chartOption"
-          auto-resize
+          autoresize
         />
       </v-flex>
       <%_ } _%>

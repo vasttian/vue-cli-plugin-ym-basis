@@ -9,6 +9,7 @@ const element = require('./tools/element');
 const vuetify = require('./tools/vuetify');
 const vueHamlet = require('./tools/vue-hamlet');
 const moment = require('./tools/moment');
+const ymSvgSprite = require('./tools/ym-svg-sprite');
 const vueEcharts = require('./tools/vue-echarts');
 
 module.exports = (api, opts, rootOptions) => {
@@ -16,15 +17,15 @@ module.exports = (api, opts, rootOptions) => {
 
   api.extendPackage({
     scripts: {
-      'build-staging': 'vue-cli-service build --mode staging',
+      'build-test': 'vue-cli-service build --mode test',
     },
     dependencies: {
-      axios: '^0.18.0',
+      axios: '^0.20.0',
     },
     devDependencies: {},
   });
-
-  console.log('options:', opts);
+  delete opts.registry;
+  console.log('>>>options:<<<', opts);
   updatePremain(api, opts);
   if (opts.i18n !== 'none') {
     i18n(api, opts, rootOptions);
@@ -36,6 +37,7 @@ module.exports = (api, opts, rootOptions) => {
   opts.hamlet && vueHamlet(api, opts);
   opts.normalize && normalize(api);
   opts.moment && moment(api);
+  opts.ymSvgSprite && ymSvgSprite(api);
   opts.echarts && vueEcharts(api, opts);
   opts.organization && api.render({
     './deploy': './tools/deploy',

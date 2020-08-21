@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-basis",
-  "version": "0.9.4-rc.1",
+  "version": "0.9.6-rc.0",
   "description": "Vue-CLI 3.x plugin for Yimian. Quickly build basic development templates.",
   "main": "index.js",
   "scripts": {
@@ -49,6 +49,7 @@
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
     "@vue/eslint-config-airbnb": "^3.0.4",
+    "standard-version": "^8.0.1",
     "vue-template-compiler": "^2.5.17"
   }
 }

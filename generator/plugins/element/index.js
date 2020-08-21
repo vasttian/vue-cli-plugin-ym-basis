@@ -24,7 +24,7 @@ import {
 } from 'element-ui';
 <%_ } _%>
 <%_ if (opts.i18n !== 'none') { _%>
-import locale from 'element-ui/lib/locale';
+import ElementLocale from 'element-ui/lib/locale';
 import zhLang from 'element-ui/lib/locale/lang/zh-CN';
 import enLang from 'element-ui/lib/locale/lang/en';
 import '../styles/element-variables.scss';
@@ -95,11 +95,13 @@ Vue.prototype.$notify = Notification;
 Vue.prototype.$locale = {
   use(lang) {
     i18n.locale = lang;
-    locale.use(lang === 'zh-CN' ? zhLang : enLang);
+    ElementLocale.use(lang === 'zh-CN' ? zhLang : enLang);
     localStorage.setItem('<%= rootOptions.projectName.toUpperCase() %>_LANGUAGE', lang);
   },
   current() {
     return i18n.locale;
   },
 };
+
+ElementLocale.i18n((key, value) => i18n.t(key, value))
 <%_ } _%>

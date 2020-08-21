@@ -2,16 +2,16 @@
 cd $HOME/projects/<%= rootOptions.projectName %>
 git pull
 
-if [ "$1" = "staging" ]
+if [ "$1" = "test" ]
 then
-  echo ">>>npm run build-staging"
-  npm run build-staging
+  echo ">>>npm run build-test"
+  npm run build-test
 elif [ "$1" = "production" ]
 then
   echo ">>>npm run build"
   npm run build
 else
-  echo "Please deploy in specific mode like staging or production."
+  echo "Please deploy in specific mode like test or production."
   exit
 fi
 

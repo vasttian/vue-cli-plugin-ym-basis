@@ -27,10 +27,10 @@ service.interceptors.request.use((request) => {
 
 service.interceptors.response.use(response => response, (error) => {
   console.log('http error', error);
-  return Promise.reject(error.status ? error : error.response);
+  return Promise.reject(error.status ? error : error.response || error);
 });
 
-function access(url, param, method) {
+function access(url, param, method, extraParameter = {}) {
   param = param || {};
   // if (window.location.search.indexOf('debug') > -1) {
   //   param.debug = true;
@@ -41,11 +41,12 @@ function access(url, param, method) {
 
   /* eslint-disable no-underscore-dangle */
   const __randNum = Math.random();
+  // console.log('>>>>extraParameter:', extraParameter);
 
   if (upperMethod === 'POST') {
-    ret = service.post(url, param, { params: { __randNum } });
+    ret = service.post(url, param, { ...extraParameter, params: { __randNum } });
   } else if (upperMethod === 'PUT') {
-    ret = service.put(url, param, { params: { __randNum } });
+    ret = service.put(url, param, { ...extraParameter, params: { __randNum } });
   } else if (upperMethod === 'DELETE') {
     ret = service.delete(url, { params: { ...param, __randNum } });
   } else {
@@ -57,7 +58,7 @@ function access(url, param, method) {
     // When successful, the body data is returned;
     // when it fails, it returns res,
     // in order to ensure the same as the return value of the http request error.
-    if (res.data.ok) {
+    if (res.data && res.data.ok) {
       return res.data;
     }
 
@@ -65,14 +66,15 @@ function access(url, param, method) {
   }, (res) => {
     // FIXME: This is not the best method.
     let errMsg = '';
+    const { status } = res;
 
-    if (res.status === 401) {
+    if (status === 401) {
       errMsg = '您无权访问该页面';
-    } else if (res.status === 403) {
+    } else if (status === 403) {
       errMsg = '禁止访问';
-    } else if (res.status === 404) {
+    } else if (status === 404) {
       errMsg = '您访问的页面不存在了';
-    } else if (res.status === 500) {
+    } else if (status === 500) {
       errMsg = '服务器出了一点问题，请联系管理员';
     }
 
@@ -96,10 +98,10 @@ export default {
   delete(url, param) {
     return access(url, param, 'delete');
   },
-  post(url, param) {
-    return access(url, param, 'post');
+  post(url, param, extraParameter) {
+    return access(url, param, 'post', extraParameter);
   },
-  put(url, param) {
-    return access(url, param, 'put');
+  put(url, param, extraParameter) {
+    return access(url, param, 'put', extraParameter);
   },
 };

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/views/auth/TheLogin.vue';
-import Layout from '@/views/layouts/AppLayout.vue';
+import AppLayout from '@/views/layouts/AppLayout.vue';
 
 Vue.use(Router);
 
@@ -51,7 +51,7 @@ export default new Router({
     },
     {
       path: '/index',
-      component: Layout,
+      component: AppLayout,
       redirect: { name: 'Index' },
       children: [
         {
@@ -67,7 +67,7 @@ export default new Router({
     },
     {
       path: '/users',
-      component: Layout,
+      component: AppLayout,
       redirect: { name: 'Users' },
       children: [
         {
@@ -84,7 +84,7 @@ export default new Router({
     {
       path: '/actions',
       name: 'Actions',
-      component: Layout,
+      component: AppLayout,
       redirect: { name: 'Create' },
       meta: {
         hasMulSub: true,
