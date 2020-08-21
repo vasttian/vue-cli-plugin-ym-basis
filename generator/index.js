@@ -19,12 +19,12 @@ module.exports = (api, opts, rootOptions) => {
       'build-test': 'vue-cli-service build --mode test',
     },
     dependencies: {
-      axios: '^0.18.0',
+      axios: '^0.20.0',
     },
     devDependencies: {},
   });
   delete opts.registry;
-  console.log('options:', opts);
+  console.log('>>>options:<<<', opts);
   updatePremain(api, opts);
   if (opts.i18n !== 'none') {
     i18n(api, opts, rootOptions);

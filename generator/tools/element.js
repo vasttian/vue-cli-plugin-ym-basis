@@ -30,7 +30,7 @@ function removeComponentPlugin(api) {
 module.exports = (api, opts) => {
   api.extendPackage({
     dependencies: {
-      'element-ui': '^2.11.1',
+      'element-ui': '^2.13.2',
     },
   });
 
@@ -38,8 +38,8 @@ module.exports = (api, opts) => {
     api.extendPackage({
       devDependencies: {
         'babel-plugin-component': '^1.1.1',
-        'sass-loader': '^7.1.0',
-        'node-sass': '^4.11.0',
+        'sass-loader': '^8.0.2',
+        'node-sass': '^4.12.0',
       },
     });
   }
