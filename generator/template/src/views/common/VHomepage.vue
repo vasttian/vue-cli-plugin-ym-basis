@@ -11,8 +11,8 @@
     <%_ if (ui === 'element' && echarts) { _%>
     <div style="display:flex; justify-content:center;">
       <v-chart
-        :options="chartOption"
         style="width:100%;"
+        :options="chartOption"
         auto-resize
       />
     </div>

@@ -37,8 +37,8 @@ module.exports = (api, opts, rootOptions) => {
   opts.hamlet && vueHamlet(api, opts);
   opts.normalize && normalize(api);
   opts.moment && moment(api);
-  opts.ymSvgSprite && ymSvgSprite(api);
   opts.echarts && vueEcharts(api, opts);
+  opts.ymSvgSprite && ymSvgSprite(api);
   opts.organization && api.render({
     './deploy': './tools/deploy',
     './fabfile.py': './tools/fabfile.py',

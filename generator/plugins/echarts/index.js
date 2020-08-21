@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import ECharts from 'vue-echarts/components/ECharts.vue';
+import ECharts from 'vue-echarts';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import 'echarts/lib/chart/bar';
