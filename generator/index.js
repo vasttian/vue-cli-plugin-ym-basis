@@ -14,7 +14,6 @@ const vueEcharts = require('./tools/vue-echarts');
 
 module.exports = (api, opts, rootOptions) => {
   api.render('./template', opts);
-
   api.extendPackage({
     scripts: {
       'build-test': 'vue-cli-service build --mode test',

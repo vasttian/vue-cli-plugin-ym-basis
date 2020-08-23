@@ -5,7 +5,8 @@
       <h3>TIP: This is a beta version.</h3>
       <h3>Start your creation as much as you can.</h3>
       <%_ if (ymSvgSprite) { _%>
-      <ym-svg svg-name="svg-demo" />
+      <ym-svg svg-name="svg-demo-1" />
+      <ym-svg svg-name="svg-demo-2" />
       <%_ } _%>
     </div>
     <%_ if (ui === 'element' && echarts) { _%>
