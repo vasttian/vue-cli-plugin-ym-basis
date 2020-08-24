@@ -1,6 +1,9 @@
 <%_ if (ymSvgSprite) { _%>
 const path = require('path');
 <%_ } _%>
+<%_ if (moment) { _%>
+const ignorePlugin = require('webpack').IgnorePlugin;
+<%_ } _%>
 <%_ if (organization || hamlet) { _%>
 const authApi = 'http://172.16.24.42:17510/';
 <%_ } else { _%>
@@ -39,8 +42,26 @@ module.exports = {
     'resize-detector',
   ],
   <%_ } _%>
+  <%_ if (moment  && !ymSvgSprite) { _%>
+  chainWebpack: config => {
+    config
+      .plugin('ignorePlugin')
+      .use(ignorePlugin, [{
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/,
+      }]);
+  },
+  <%_ } _%>
   <%_ if (ymSvgSprite) { _%>
   chainWebpack: config => {
+    <%_ if (moment) { _%>
+    config
+      .plugin('ignorePlugin')
+      .use(ignorePlugin, [{
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/,
+      }]);
+    <%_ } _%>
     const resolve = dir => path.join(__dirname, dir);
     const svgRule = config.module.rule('svg');
 

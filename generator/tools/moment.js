@@ -24,6 +24,9 @@ module.exports = (api) => {
     dependencies: {
       moment: '^2.27.0',
     },
+    devDependencies: {
+      webpack: '^4.44.1',
+    },
   });
   api.onCreateComplete(() => {
     helpers.updateFile(api, api.entryFile, (lineups) => {

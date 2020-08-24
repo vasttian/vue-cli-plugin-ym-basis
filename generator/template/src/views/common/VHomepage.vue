@@ -5,15 +5,16 @@
       <h3>TIP: This is a beta version.</h3>
       <h3>Start your creation as much as you can.</h3>
       <%_ if (ymSvgSprite) { _%>
-      <ym-svg svg-name="svg-demo" />
+      <ym-svg svg-name="svg-demo-1" />
+      <ym-svg svg-name="svg-demo-2" />
       <%_ } _%>
     </div>
     <%_ if (ui === 'element' && echarts) { _%>
     <div style="display:flex; justify-content:center;">
       <v-chart
-        :options="chartOption"
         style="width:100%;"
-        auto-resize
+        :options="chartOption"
+        autoresize
       />
     </div>
     <%_ } _%>
