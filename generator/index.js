@@ -24,7 +24,7 @@ module.exports = (api, opts, rootOptions) => {
     devDependencies: {},
   });
   delete opts.registry;
-  console.log('>>>options:<<<', opts);
+  console.log('\n>>>options:<<<\n%o\n', opts);
   updatePremain(api, opts);
   if (opts.i18n !== 'none') {
     i18n(api, opts, rootOptions);
@@ -61,7 +61,7 @@ module.exports = (api, opts, rootOptions) => {
         tabWidth: 2,
         semi: true,
         singleQuote: true,
-        parser: 'babylon',
+        parser: 'babel',
         trailingComma: 'all',
       });
       const needDeleteFiles = [
