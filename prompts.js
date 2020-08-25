@@ -13,7 +13,7 @@ module.exports = [
   {
     name: 'organization',
     type: 'confirm',
-    message: 'Are you a member of the yimian organization? There will be some special configurations',
+    message: 'Are you a member of the YiMian organization? There will be some special configurations',
     default: false,
   },
   {

@@ -34,8 +34,6 @@
 
 ### :warning: Heads up
 
-~~Currently this is just a **beta version**.~~
-
 If you use the [element-ui](http://element-cn.eleme.io/#/en-US/component/custom-theme#cli-theme-tool) and want to customize the theme,
 
 After using the `et -i && et` command to generate the `theme` folder,
