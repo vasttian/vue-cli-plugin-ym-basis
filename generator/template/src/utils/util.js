@@ -515,7 +515,7 @@ export function sortObject (obj, order = 'asc') {
 /**
 * 字符串的首字母大写
 */
-export function fistLetterUpper(str) {
+export function firstLetterUpper(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
