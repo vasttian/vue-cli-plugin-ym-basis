@@ -161,6 +161,10 @@ export function compare(a, b) {
   return 1;
 };
 
+export function compareArrayWithoutOrder(a = [], b = []) {
+  return a.length === b.length && ([...a].sort().toString() === [...b].sort().toString());
+};
+
 export function isEmptyObject(e) {
   for (const t in e) {
     return !1;
