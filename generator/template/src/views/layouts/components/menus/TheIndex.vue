@@ -9,143 +9,131 @@
     router
   >
     <template v-for="(route, index) in routes">
-      <template v-if="!route.children">
-        <el-menu-item
-          v-if="roleShow(route)"
-          :key="index"
-          :index="route.name"
-          :route="route"
-        >
-          <span slot="title">
-            <%_ if (i18n === 'none') { _%>
-            {{ route.name }}
-            <%_ } else { _%>
-            {{ i18nRouteName(route.name) }}
-            <%_ } _%>
-          </span>
-        </el-menu-item>
-      </template>
-      <template v-else-if="route.meta && route.meta.hasMulSub">
-        <el-submenu
-          v-if="roleShow(route)"
-          :index="route.name"
-          :key="index"
-        >
-          <span slot="title">
-            <%_ if (i18n === 'none') { _%>
-            {{ route.name }}
-            <%_ } else { _%>
-            {{ i18nRouteName(route.name) }}
-            <%_ } _%>
-          </span>
-          <el-menu-item
-            v-for="(cRoute, idx) in route.children"
-            :key="idx"
-            :index="cRoute.name"
-            :route="cRoute"
-          >
-            <span slot="title">
-              <%_ if (i18n === 'none') { _%>
-              {{ cRoute.name }}
-              <%_ } else { _%>
-              {{ i18nRouteName(cRoute.name) }}
-              <%_ } _%>
-            </span>
-          </el-menu-item>
-        </el-submenu>
-      </template>
-      <template v-else>
-        <el-menu-item
-          v-if="roleShow(route.children[0])"
-          :key="index"
-          :index="getRouteName(route)"
-          :route="route.children[0]"
-        >
-          <span slot="title">
-            <%_ if (i18n === 'none') { _%>
-            {{ getRouteName(route) }}
-            <%_ } else { _%>
-            {{ i18nRouteName(getRouteName(route)) }}
-            <%_ } _%>
-          </span>
-        </el-menu-item>
-      </template>
-    </template>
-  </el-menu>
-  <%_ } else if (ui === 'vuetify') { _%>
-  <v-toolbar-items>
-    <template v-for="(route, index) in $router.options.routes">
-      <template v-if="!route.children">
-        <v-btn
-          v-if="roleShow(route)"
-          flat
-          :key="index"
-          :input-value="activeMenu === route.name"
-          :to="{ name: route.name }"
-        >
+      <el-menu-item
+        v-if="!route.children && roleShow(route)"
+        :key="index"
+        :index="route.name"
+        :route="route"
+      >
+        <span slot="title">
           <%_ if (i18n === 'none') { _%>
           {{ route.name }}
           <%_ } else { _%>
           {{ i18nRouteName(route.name) }}
           <%_ } _%>
-        </v-btn>
-      </template>
-      <template v-else-if="route.meta && route.meta.hasMulSub">
-        <v-menu
-          v-if="roleShow(route)"
-          :key="index"
-          bottom
-          offset-y
-          origin="bottom center"
-          transition="scale-transition"
+        </span>
+      </el-menu-item>
+      <el-submenu
+        v-else-if="route.meta && route.meta.hasMulSub && roleShow(route)"
+        :index="route.name"
+        :key="index"
+      >
+        <span slot="title">
+          <%_ if (i18n === 'none') { _%>
+          {{ route.name }}
+          <%_ } else { _%>
+          {{ i18nRouteName(route.name) }}
+          <%_ } _%>
+        </span>
+        <el-menu-item
+          v-for="(cRoute, idx) in route.children"
+          :key="idx"
+          :index="cRoute.name"
+          :route="cRoute"
         >
-          <v-btn
-            slot="activator"
-            flat>
+          <span slot="title">
             <%_ if (i18n === 'none') { _%>
-            {{ route.name }}
+            {{ cRoute.name }}
             <%_ } else { _%>
-            {{ i18nRouteName(route.name) }}
+            {{ i18nRouteName(cRoute.name) }}
             <%_ } _%>
-            <v-icon dark>arrow_drop_down</v-icon>
-          </v-btn>
-          <v-list :key="index">
-            <v-list-tile
-              v-for="(cRoute, idx) in route.children"
-              :key="idx"
-              :to="{ name: cRoute.name }"
-            >
-              <v-list-tile-action v-if="cRoute.meta && cRoute.meta.icon">
-                <v-icon>{{ cRoute.meta.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  <%_ if (i18n === 'none') { _%>
-                  {{ cRoute.name }}
-                  <%_ } else { _%>
-                  {{ i18nRouteName(cRoute.name) }}
-                  <%_ } _%>
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </v-list>
-        </v-menu>
-      </template>
-      <template v-else>
-        <v-btn
-          v-if="roleShow(route.children[0])"
-          :key="index"
-          flat
-          :input-value="activeMenu === getRouteName(route)"
-          :to="{ name: getRouteName(route) }"
-        >
+          </span>
+        </el-menu-item>
+      </el-submenu>
+      <el-menu-item
+        v-else-if="roleShow(route) && route.children && roleShow(route.children[0])"
+        :key="index"
+        :index="getRouteName(route)"
+        :route="route.children[0]"
+      >
+        <span slot="title">
           <%_ if (i18n === 'none') { _%>
           {{ getRouteName(route) }}
           <%_ } else { _%>
           {{ i18nRouteName(getRouteName(route)) }}
           <%_ } _%>
+        </span>
+      </el-menu-item>
+    </template>
+  </el-menu>
+  <%_ } else if (ui === 'vuetify') { _%>
+  <v-toolbar-items>
+    <template v-for="(route, index) in $router.options.routes">
+      <v-btn
+        v-if="!route.children && roleShow(route)"
+        flat
+        :key="index"
+        :input-value="activeMenu === route.name"
+        :to="{ name: route.name }"
+      >
+        <%_ if (i18n === 'none') { _%>
+        {{ route.name }}
+        <%_ } else { _%>
+        {{ i18nRouteName(route.name) }}
+        <%_ } _%>
+      </v-btn>
+      <v-menu
+        v-else-if="route.meta && route.meta.hasMulSub && roleShow(route)"
+        :key="index"
+        bottom
+        offset-y
+        origin="bottom center"
+        transition="scale-transition"
+      >
+        <v-btn
+          slot="activator"
+          flat>
+          <%_ if (i18n === 'none') { _%>
+          {{ route.name }}
+          <%_ } else { _%>
+          {{ i18nRouteName(route.name) }}
+          <%_ } _%>
+          <v-icon dark>arrow_drop_down</v-icon>
         </v-btn>
-      </template>
+        <v-list :key="index">
+          <v-list-tile
+            v-for="(cRoute, idx) in route.children"
+            :key="idx"
+            :to="{ name: cRoute.name }"
+          >
+            <v-list-tile-action v-if="cRoute.meta && cRoute.meta.icon">
+              <v-icon>{{ cRoute.meta.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>
+                <%_ if (i18n === 'none') { _%>
+                {{ cRoute.name }}
+                <%_ } else { _%>
+                {{ i18nRouteName(cRoute.name) }}
+                <%_ } _%>
+              </v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+      <v-btn
+        v-else-if="roleShow(route) && route.children && roleShow(route.children[0])"
+        :key="index"
+        flat
+        :input-value="activeMenu === getRouteName(route)"
+        :to="{ name: getRouteName(route) }"
+      >
+        <%_ if (i18n === 'none') { _%>
+        {{ getRouteName(route) }}
+        <%_ } else { _%>
+        {{ i18nRouteName(getRouteName(route)) }}
+        <%_ } _%>
+      </v-btn>
     </template>
   </v-toolbar-items>
   <%_ } else { _%>
@@ -199,4 +187,3 @@ export default {
   },
 };
 </script>
-
