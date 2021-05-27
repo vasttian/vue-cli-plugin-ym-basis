@@ -520,6 +520,13 @@ export function firstLetterUpper(str) {
 };
 
 /**
+ * 字符串的首字母小写
+ */
+ export function firstLetterLower(str) {
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}
+
+/**
  * 判断是否是 IE 浏览器
  * @return {Boolean} [description]
  */
